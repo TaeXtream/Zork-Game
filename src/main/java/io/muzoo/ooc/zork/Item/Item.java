@@ -1,13 +1,20 @@
 package io.muzoo.ooc.zork.Item;
 
-public class Item {
+public abstract class Item {
     private final String name;
+    private String info;
 
-    public Item(String newName){
+
+    public Item(String newName, String info) {
         name = newName;
+        info = info;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
+    }
+
+    public String getInfo() {
+        return info;
     }
 }

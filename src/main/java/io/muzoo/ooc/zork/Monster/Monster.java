@@ -1,10 +1,12 @@
 package io.muzoo.ooc.zork.Monster;
 
 import io.muzoo.ooc.zork.Character.Entity;
+import io.muzoo.ooc.zork.Item.Item;
 
 public abstract class Monster extends Entity {
     private boolean hostile;
-    private boolean alive = true;
+    private int attack;
+    Item drop;
 
     void setHostile(boolean bool){
         hostile = bool;
@@ -14,13 +16,19 @@ public abstract class Monster extends Entity {
         return hostile;
     }
 
-    boolean isAlive(){
-        return alive;
+    public void setAttack(int attack){
+        this.attack = attack;
     }
 
-    void dead(){
-        alive = false;
+    public int getAttack() {
+        return attack;
     }
 
+    public Item getDrop() {
+        return drop;
+    }
 
+    public void setDrop(Item drop) {
+        this.drop = drop;
+    }
 }

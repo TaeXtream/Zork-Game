@@ -6,7 +6,6 @@ public class CommandFactory {
     private static Map<String, Command> commandMap = new HashMap<>();
     static {//static initialisation
         commandMap.put("ext",new ExitCommand());
-        //commandMap.put("echo", new EchoCommand) other commands
         commandMap.put("go", new GoCommand());
         commandMap.put("take", new TakeCommand());
     }

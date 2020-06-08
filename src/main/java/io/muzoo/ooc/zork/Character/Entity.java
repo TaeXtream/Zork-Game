@@ -1,23 +1,26 @@
 package io.muzoo.ooc.zork.Character;
 
+import io.muzoo.ooc.zork.Item.Item;
+
 public abstract class Entity {
     private int healthMax;
     private int health;
-    private int attack;
     private String name;
     private String info;
+    private boolean alive;
 
     public Entity(){
         this.healthMax = 100;
         this.health = 100;
-        this.attack = 0;
         this.name = "default";
+        this.alive = true;
     }
 
     public Entity(String name, int healthMax, int health){
         this.healthMax = healthMax;
         this.health = health;
         this.name = name;
+        this.alive = true;
     }
 
     public int getHealth() {
@@ -58,13 +61,14 @@ public abstract class Entity {
         return this.info;
     }
 
-    public void setAttack(int attack){
-        this.attack = attack;
+    boolean isAlive(){
+        return alive;
     }
 
-    public int getAttack() {
-        return attack;
+    void dead(){
+        alive = false;
     }
+
 
 
 

@@ -1,0 +1,30 @@
+name:Ruined Pinnacle
+discription:Ruined Pinnacle has never been explored or known about until recently. This place is believed to be where a lost civilization once lived. All sorts of ruins and ancient trees have been spotted in this area thus far. Certain plants and grains grow in Ruined Pinnacle. These plants attract a large number of herbivores. The plentiful prey here also draws in more predators. Legend said that this place is now home of the legendary Sky Comet Dragon.
+
+Areas
+
+Camp:
+exit={north=Area1}
+
+Area1:
+exit={south=Camp, east=Area2, north=Area6} monsters={small=4}.
+Monster={Small=4}.
+
+Area2: 
+exit={west=Area1, east=Area3}
+Monster={Small=4}.
+
+Area3: 
+exit={east=Area2, north=Area4}
+Monster={Large=1}
+Area4: exit={south=Area3, west=Area5}
+Area5: exit={east=Area4, west=Area6}
+Area6: exit={south=Area1, east=Area5, north=Area7}
+Area7: exit={south=Area6, east=Area8}
+Area8: exit={west=Area7, south=Area5, east=Area9}
+Area9: exit={west=Area8}
+
+Map Monsters:
+Small={Aptonoth, Remobra, Maccao, Conga}
+Large={Lagiacrus, Rathalos, Gore Magala}
+Dragon={Valstrax}

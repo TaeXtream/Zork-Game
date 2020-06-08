@@ -9,12 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Area {
-    public String name;
-    public String description;
-    private final List<Item> items = new ArrayList<>();
-    private final HashMap<String, Area> neighbor;
-    int monsterCounter = 0;
-    List<Monster> monsters;
+    String name;
+    String description;
+    HashMap<String, Area> neighbor;
+    List<Monster> monsters = new ArrayList<>();
+    List<Item> items = new ArrayList<>();
     String temperature;
 
     public Area(String name) {
@@ -26,6 +25,22 @@ public class Area {
         this.name = name;
         this.description = description;
         neighbor = new HashMap<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    void printNeighborList(){
+        StringBuilder neighborList = new StringBuilder();
+        neighborList.append("{ ");
+        for(String string : neighbor.keySet()){
+            neighborList.append(string);
+            neighborList.append("=");
+            neighborList.append(neighbor.get(string).name).append(" ");
+        }
+        neighborList.append("}");
+        System.out.println(neighborList);
     }
 
     public void setExit(String direction, Area neighbor) {
@@ -77,12 +92,13 @@ public class Area {
         return ritem;
     }
 
-    public void countMonster(){
-        monsterCounter+=1;
+    public void addMonster(Monster monster){
+        monsters.add(monster);
     }
-     
-    public boolean monsterFull(){
-        return monsterCounter >= 3;
+
+    public void removeMonster(Monster monster){
+        monsters.remove(monster);
     }
+
 
 }

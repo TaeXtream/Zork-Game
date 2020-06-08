@@ -11,8 +11,6 @@ public class Main {
         Game game = new Game();
         game.start();
         Map map = new Map(new File("RuinPinnacleData.txt"));
-        System.out.println(map.getName());
-        map.printIntro();
 
     }
 }

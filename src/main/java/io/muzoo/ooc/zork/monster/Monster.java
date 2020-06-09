@@ -1,7 +1,7 @@
-package io.muzoo.ooc.zork.Monster;
+package io.muzoo.ooc.zork.monster;
 
-import io.muzoo.ooc.zork.Character.Entity;
-import io.muzoo.ooc.zork.Item.Item;
+import io.muzoo.ooc.zork.character.Entity;
+import io.muzoo.ooc.zork.gameitem.Item;
 
 public abstract class Monster extends Entity {
     private boolean hostile;

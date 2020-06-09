@@ -1,6 +1,6 @@
 package io.muzoo.ooc.zork;
 
-import io.muzoo.ooc.zork.Map.Map;
+import io.muzoo.ooc.zork.gamemap.GameMap;
 import io.muzoo.ooc.zork.command.Command;
 import io.muzoo.ooc.zork.command.CommandFactory;
 
@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Game {
-    List<Map> allMap;
+    List<GameMap> allGameMap;
 
     public Game(){
     }
@@ -25,7 +25,7 @@ public class Game {
 
     }
 
-    public void play(Map map){
+    public void play(GameMap gameMap){
 
     }
 

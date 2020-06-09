@@ -1,4 +1,4 @@
-package io.muzoo.ooc.zork.Monster;
+package io.muzoo.ooc.zork.monster;
 
 public class Dragon extends Monster {
     private int superAttack;

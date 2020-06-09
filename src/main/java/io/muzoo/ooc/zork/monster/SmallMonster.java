@@ -1,6 +1,4 @@
-package io.muzoo.ooc.zork.Monster;
-
-import io.muzoo.ooc.zork.Character.Entity;
+package io.muzoo.ooc.zork.monster;
 
 public class SmallMonster extends Monster {
 

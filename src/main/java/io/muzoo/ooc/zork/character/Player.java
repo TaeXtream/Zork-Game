@@ -1,7 +1,7 @@
-package io.muzoo.ooc.zork.Character;
+package io.muzoo.ooc.zork.character;
 
-import io.muzoo.ooc.zork.Item.Item;
-import io.muzoo.ooc.zork.Item.Weapon;
+import io.muzoo.ooc.zork.gameitem.Item;
+import io.muzoo.ooc.zork.gameitem.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;

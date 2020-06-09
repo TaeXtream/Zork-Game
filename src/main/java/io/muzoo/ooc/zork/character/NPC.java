@@ -1,6 +1,6 @@
-package io.muzoo.ooc.zork.Character;
+package io.muzoo.ooc.zork.character;
 
-import io.muzoo.ooc.zork.Item.Item;
+import io.muzoo.ooc.zork.gameitem.Item;
 
 import java.util.LinkedList;
 import java.util.List;

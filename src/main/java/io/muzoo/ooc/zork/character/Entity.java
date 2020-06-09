@@ -1,6 +1,4 @@
-package io.muzoo.ooc.zork.Character;
-
-import io.muzoo.ooc.zork.Item.Item;
+package io.muzoo.ooc.zork.character;
 
 public abstract class Entity {
     private int healthMax;

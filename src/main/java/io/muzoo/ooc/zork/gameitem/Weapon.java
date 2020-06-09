@@ -1,4 +1,4 @@
-package io.muzoo.ooc.zork.Item;
+package io.muzoo.ooc.zork.gameitem;
 
 public class Weapon extends Item {
 

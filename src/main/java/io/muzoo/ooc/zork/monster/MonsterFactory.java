@@ -1,6 +1,4 @@
-package io.muzoo.ooc.zork.Monster;
-
-import java.util.*;
+package io.muzoo.ooc.zork.monster;
 
 public class MonsterFactory {
 

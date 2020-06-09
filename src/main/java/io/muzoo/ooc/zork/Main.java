@@ -1,6 +1,6 @@
 package io.muzoo.ooc.zork;
 
-import io.muzoo.ooc.zork.Map.Map;
+import io.muzoo.ooc.zork.gamemap.GameMap;
 
 import java.io.File;
 
@@ -10,7 +10,7 @@ public class Main {
 
         Game game = new Game();
         game.start();
-        Map map = new Map(new File("RuinPinnacleData.txt"));
+        GameMap gameMap = new GameMap(new File("RuinPinnacleData.txt"));
 
     }
 }

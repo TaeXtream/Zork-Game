@@ -1,7 +1,7 @@
-package io.muzoo.ooc.zork.Map;
+package io.muzoo.ooc.zork.gamemap;
 
-import io.muzoo.ooc.zork.Item.Item;
-import io.muzoo.ooc.zork.Monster.Monster;
+import io.muzoo.ooc.zork.gameitem.Item;
+import io.muzoo.ooc.zork.monster.Monster;
 
 import java.util.ArrayList;
 import java.util.Collection;

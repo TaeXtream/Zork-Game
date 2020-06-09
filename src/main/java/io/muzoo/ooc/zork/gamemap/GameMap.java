@@ -1,36 +1,36 @@
-package io.muzoo.ooc.zork.Map;
+package io.muzoo.ooc.zork.gamemap;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Map {
+public class GameMap {
     String name;
     String description;
     List<Area> areas = new ArrayList<>();
     File base;
 
-    public Map(String path){
+    public GameMap(String path){
         File file = new File(path);
         try {
             this.base = file;
             Scanner scanner = new Scanner(base);
             this.name = stringCutter(scanner.nextLine(), ":");
             this.description = stringCutter(scanner.nextLine(), ":");
-            this.generateArea();
+            this.generateMap();
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public Map(File base){
+    public GameMap(File base){
         try {
             this.base = base;
             Scanner scanner = new Scanner(base);
             this.name = stringCutter(scanner.nextLine(), ":");
             this.description = stringCutter(scanner.nextLine(), ":");
-            this.generateArea();
+            this.generateMap();
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -53,8 +53,9 @@ public class Map {
         System.out.println(this.description.replaceAll("\\.", ".\n"));
     }
 
-    void generateArea(){
+    void generateMap(){
         List<String[]> allNeighbors = new ArrayList<>();
+        List<String[]> allMonster = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(this.base);
             while (scanner.hasNext()){
@@ -74,16 +75,21 @@ public class Map {
                     current = current.substring(current.indexOf("{")+1,current.indexOf("}"));
                     String[] arr = current.split(",");
                     allNeighbors.add(arr);
+                    current = scanner.next();
+                    current = current.substring(current.indexOf("{")+1,current.indexOf("}"));
+                    arr = current.split(",");
+                    allMonster.add(arr);
                 }
             }
-            generateNeigbor(areas, allNeighbors);
+            generateAreaPath(allNeighbors);
+            generateMonster(allMonster);
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    void generateNeigbor(List<Area> areas, List<String[] > allNeighbor){
+    void generateAreaPath(List<String[] > allNeighbor){
         printAreas();
         assert areas.size() == allNeighbor.size();
         for (int i=0; i < areas.size() ; i++){
@@ -99,12 +105,11 @@ public class Map {
                     areas.get(i).neighbor.put(exit, areas.get(scanner.nextInt()));
                 }
             }
-            areas.get(i).printNeighborList();
         }
     }
 
-    void generateMonster(){
-
+    void generateMonster(List<String[] > allMonster){
+        System.out.println(allMonster.toString());
     }
 
     public void printAreas(){

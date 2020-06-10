@@ -34,13 +34,23 @@ public class Area {
     void printNeighborList(){
         StringBuilder neighborList = new StringBuilder();
         neighborList.append("{ ");
-        for(String string : neighbor.keySet()){
+        for (String string : neighbor.keySet()) {
             neighborList.append(string);
             neighborList.append("=");
             neighborList.append(neighbor.get(string).name).append(" ");
         }
         neighborList.append("}");
         System.out.println(neighborList);
+    }
+
+    void printMonsterList() {
+        StringBuilder monsterList = new StringBuilder();
+        monsterList.append("{ ");
+        for (Monster monster : monsters) {
+            monsterList.append(monster.getName()).append(" ");
+        }
+        monsterList.append("}");
+        System.out.println(monsterList);
     }
 
     public void setExit(String direction, Area neighbor) {
@@ -92,12 +102,16 @@ public class Area {
         return ritem;
     }
 
-    public void addMonster(Monster monster){
+    public void addMonster(Monster monster) {
         monsters.add(monster);
     }
 
-    public void removeMonster(Monster monster){
+    public void removeMonster(Monster monster) {
         monsters.remove(monster);
+    }
+
+    public void removeDeathMonster() {
+        monsters.removeIf(monster -> !monster.isAlive());
     }
 
 

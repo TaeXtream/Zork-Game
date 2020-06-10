@@ -1,5 +1,7 @@
 package io.muzoo.ooc.zork.gamemap;
 
+import io.muzoo.ooc.zork.monster.MonsterFactory;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -9,8 +11,11 @@ public class GameMap {
     String description;
     List<Area> areas = new ArrayList<>();
     File base;
+    List<String> smallMonsters = new ArrayList<>();
+    List<String> bigMonsters = new ArrayList<>();
+    List<String> dragon = new ArrayList<>();
 
-    public GameMap(String path){
+    public GameMap(String path) {
         File file = new File(path);
         try {
             this.base = file;
@@ -31,21 +36,20 @@ public class GameMap {
             this.name = stringCutter(scanner.nextLine(), ":");
             this.description = stringCutter(scanner.nextLine(), ":");
             this.generateMap();
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    static String stringCutter(String url, String target){
-        return url.substring(url.indexOf(target)+1);
+    String stringCutter(String s, String target) {
+        return s.substring(s.indexOf(target) + 1);
     }
 
-    void setName(String name){
+    void setName(String name) {
         this.name = name;
     }
 
-    void setDescription(String description){
+    void setDescription(String description) {
         this.description = description;
     }
 
@@ -56,32 +60,40 @@ public class GameMap {
     void generateMap(){
         List<String[]> allNeighbors = new ArrayList<>();
         List<String[]> allMonster = new ArrayList<>();
+        String[] arr;
         try {
             Scanner scanner = new Scanner(this.base);
-            while (scanner.hasNext()){
+            while (scanner.hasNext()) {
                 String current = scanner.next();
-                if(current.matches("Camp")){
+                if (current.contains("Map_Monsters:")) {
+                    current = scanner.next();
+                    arr = stringtoArray(current);
+                    smallMonsters.addAll(Arrays.asList(arr));
+                    current = scanner.next();
+                    arr = stringtoArray(current);
+                    bigMonsters.addAll(Arrays.asList(arr));
+                    current = scanner.next();
+                    arr = stringtoArray(current);
+                    dragon.addAll(Arrays.asList(arr));
+                } else if (current.contains("Camp")) {
                     Area camp = new Area("Camp");
                     areas.add(camp);
                     current = scanner.next("exit.*");
-                    current = current.substring(current.indexOf("{")+1,current.indexOf("}"));
-                    String[] arr = current.split(",");
+                    arr = stringtoArray(current);
                     allNeighbors.add(arr);
-                }
-                else if(current.matches("Area.*\\d.*")){
+                } else if (current.matches("Area.*\\d.*")) {
                     Area area = new Area(current);
                     areas.add(area);
                     current = scanner.next("exit.*");
-                    current = current.substring(current.indexOf("{")+1,current.indexOf("}"));
-                    String[] arr = current.split(",");
+                    arr = stringtoArray(current);
                     allNeighbors.add(arr);
                     current = scanner.next();
-                    current = current.substring(current.indexOf("{")+1,current.indexOf("}"));
-                    arr = current.split(",");
+                    arr = stringtoArray(current);
                     allMonster.add(arr);
                 }
             }
             generateAreaPath(allNeighbors);
+            printAreas();
             generateMonster(allMonster);
         }
         catch (FileNotFoundException e) {
@@ -90,8 +102,6 @@ public class GameMap {
     }
 
     void generateAreaPath(List<String[] > allNeighbor){
-        printAreas();
-        assert areas.size() == allNeighbor.size();
         for (int i=0; i < areas.size() ; i++){
             String[] exits = allNeighbor.get(i);
             for(String string : exits){
@@ -99,8 +109,7 @@ public class GameMap {
                 String wayout = string.substring(string.indexOf("=")+1);
                 if(wayout.equals("Camp")){
                     areas.get(i).neighbor.put(exit, areas.get(0));
-                }
-                else{
+                } else {
                     Scanner scanner = new Scanner(wayout).useDelimiter("[^0-9]+");
                     areas.get(i).neighbor.put(exit, areas.get(scanner.nextInt()));
                 }
@@ -108,14 +117,31 @@ public class GameMap {
         }
     }
 
-    void generateMonster(List<String[] > allMonster){
-        System.out.println(allMonster.toString());
+    void generateMonster(List<String[]> allMonster) {
+        int i = 1;
+        MonsterFactory monsterFactory = new MonsterFactory();
+        for (String[] monsters : allMonster) {
+            for (String monster : monsters) {
+                String name = monster.substring(0, monster.indexOf("="));
+                int amount = Integer.parseInt(monster.replaceAll("[\\D]", ""));
+                for (int j = 0; j < amount; j++) {
+                    if (smallMonsters.contains(name)) {
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.SmallMonster, name));
+                    } else if (bigMonsters.contains(name)) {
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.BigMonster, name));
+                    } else
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.Dragon, name));
+                }
+            }
+            areas.get(i).printMonsterList();
+            i++;
+        }
     }
 
-    public void printAreas(){
+    public void printAreas() {
         StringBuilder allAreas = new StringBuilder();
         allAreas.append("{ ");
-        for (Area area : areas){
+        for (Area area : areas) {
             allAreas.append(area.getName());
             allAreas.append(" ");
         }
@@ -128,12 +154,17 @@ public class GameMap {
 
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getDescription(){
-        return description;
+    public String getDescription() {
+        return description.replaceAll("\\.", ".\n");
+    }
+
+    String[] stringtoArray(String s) {
+        s = s.substring(s.indexOf("{") + 1, s.indexOf("}"));
+        return s.split(",");
     }
 
 

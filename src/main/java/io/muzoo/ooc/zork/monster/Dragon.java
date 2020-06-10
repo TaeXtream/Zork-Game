@@ -1,7 +1,8 @@
 package io.muzoo.ooc.zork.monster;
 
+
 public class Dragon extends Monster {
-    private int superAttack;
+    private final int superAttack;
 
     public Dragon(){
         this.setHealthMax(200);

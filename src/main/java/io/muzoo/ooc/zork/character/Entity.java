@@ -59,11 +59,11 @@ public abstract class Entity {
         return this.info;
     }
 
-    boolean isAlive(){
+    public boolean isAlive() {
         return alive;
     }
 
-    void dead(){
+    public void dead() {
         alive = false;
     }
 

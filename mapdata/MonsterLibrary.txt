@@ -1,0 +1,29 @@
+SmallMonster:4
+Name:Aptonoth
+Description:Aptonoth are cow-like creatures with leathery gray skin. Docile herbivores that graze in packs. Their meat is considered a delicacy and is rich in nutrients. If one member of the herd is attacked, the rest will flee immediately.
+Drop=MonsterMeat
+Name:Remobra
+Description:Small but agile flying wyverns that seek out weakened creatures to attack. Often seen near elder dragons, they're considered a portent of disaster.
+Drop=SmallHide
+Name:Maccao
+Description:Colorful red and green bird wyverns that live in large packs, they can be found mostly in the Jurassic Frontier. Though they attack prey aggressively with their strong legs, they are known to flee once their leader is in danger.
+Drop=SmallClaw
+Name:Conga
+Description:Ape-like Primatius with pink fur. Prefers to live in small groups as opposed to large packs, and particularly enjoys mushroom snacks. If stumbled upon, it will be hostile, so beware of areas like the swamp or jungle.
+Drop=SmallPelt
+
+BigMonster:3
+Name:Lagiacrus
+Description:Leviathans that exist at the top of the aquatic food chain. Feared by sailors as the "Lords of the Seas", Lagiacrus store enough electricity in their spinal organs to make the oceans surge. Occasionally they can be found resting on land as well.
+Drop=ElectricFang
+Name:Rathalos
+Description:Terrible wyverns called "Kings of the Skies". It stake wide territories centered around its nests. Rathalos descend on invaders from the sky, attacking with poison claws and breath of fire.
+Drop=WyvernHide
+Name:GoreMagala
+Description:A bizarre wyvern that, when threatened, scatters pollen-like scales that heighten its own senses while causing detrimental effects to any other creatures that inhale them. As elusive as it is mysterious.
+Drop=DarkClaw
+
+Dragon:1
+Name:Valstrax
+Description:An elder dragon that soars at very high altitudes far from human habitation. Its flaming red wings are often the only visible sign of it, giving rise to its nickname, the Argent Comet. Those wings aren't just for flying, though, and are easily used to stab, rend and blow away its enemies. Occasionally, one can find the scorched shells it has left behind.
+Drop=DragonHeart

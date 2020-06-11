@@ -1,4 +1,5 @@
 name:Ruined Pinnacle
+intro:You arrived at Ruined Pinaccle via an airship. An ancient mountain full of mystery. You has a mission to hunt the legendary dragon for research commission.
 discription:Ruined Pinnacle has never been explored or known about until recently. This place is believed to be where a lost civilization once lived. All sorts of ruins and ancient trees have been spotted in this area thus far. Certain plants and grains grow in Ruined Pinnacle. These plants attract a large number of herbivores. The plentiful prey here also draws in more predators. Legend said that this place is now home of the legendary Sky Comet Dragon.
 
 Areas:

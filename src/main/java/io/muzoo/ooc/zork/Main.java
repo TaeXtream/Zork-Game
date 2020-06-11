@@ -12,6 +12,8 @@ public class Main {
         Game game = new Game();
         game.start();
         GameMap gameMap = new GameMap(new File("RuinPinnacleMap\\RuinPinnacleData.txt"));
+//        gameMap.printIntro();
+//        gameMap.printDescription();
 //        GameLibrary gameLibrary = new GameLibrary();
 //        gameLibrary.listBookEntry(gameLibrary.getDragonBook());
 //        gameLibrary.listBookEntry(gameLibrary.getVictoryItem());

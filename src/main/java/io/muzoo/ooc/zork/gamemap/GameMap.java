@@ -1,7 +1,5 @@
 package io.muzoo.ooc.zork.gamemap;
 
-import io.muzoo.ooc.zork.gameitem.Healitem;
-import io.muzoo.ooc.zork.gameitem.Item;
 import io.muzoo.ooc.zork.gameitem.ItemFactory;
 import io.muzoo.ooc.zork.gameitem.ItemType;
 import io.muzoo.ooc.zork.monster.MonsterFactory;
@@ -13,6 +11,7 @@ import java.util.*;
 
 public class GameMap {
     String name;
+    String intro;
     String description;
     List<Area> areas = new ArrayList<>();
     File base;
@@ -24,6 +23,7 @@ public class GameMap {
             this.base = file;
             Scanner scanner = new Scanner(base);
             this.name = stringCutter(scanner.nextLine(), ":");
+            this.intro = stringCutter(scanner.nextLine(), ":");
             this.description = stringCutter(scanner.nextLine(), ":");
             this.generateMap();
         }
@@ -37,6 +37,7 @@ public class GameMap {
             this.base = base;
             Scanner scanner = new Scanner(base);
             this.name = stringCutter(scanner.nextLine(), ":");
+            this.intro = stringCutter(scanner.nextLine(), ":");
             this.description = stringCutter(scanner.nextLine(), ":");
             this.generateMap();
         } catch (FileNotFoundException e) {
@@ -48,19 +49,19 @@ public class GameMap {
         return s.substring(s.indexOf(target) + 1);
     }
 
-    void setName(String name) {
-        this.name = name;
-    }
-
     void setDescription(String description) {
         this.description = description;
     }
 
-    public void printIntro(){
+    public void printIntro() {
+        System.out.println(this.intro.replaceAll("\\.", ".\n"));
+    }
+
+    public void printDescription() {
         System.out.println(this.description.replaceAll("\\.", ".\n"));
     }
 
-    void generateMap(){
+    void generateMap() {
         List<String[]> allNeighbors = new ArrayList<>();
         List<String[]> allMonster = new ArrayList<>();
         List<String[]> allItem = new ArrayList<>();
@@ -90,7 +91,6 @@ public class GameMap {
                 }
             }
             generateAreaPath(allNeighbors);
-            printAreas();
             generateMonster(allMonster);
             genarateItem(allItem);
         }

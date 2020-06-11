@@ -1,10 +1,10 @@
 package io.muzoo.ooc.zork.gameitem;
 
-public class Weapon extends Item {
+public class Weapon {
 
     int damage;
-    public Weapon(String newName, String info, int damage) {
-        super(newName, info);
+
+    public Weapon(int damage) {
         this.damage = damage;
     }
 

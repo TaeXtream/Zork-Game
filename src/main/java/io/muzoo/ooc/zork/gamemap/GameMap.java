@@ -1,6 +1,11 @@
 package io.muzoo.ooc.zork.gamemap;
 
+import io.muzoo.ooc.zork.gameitem.Healitem;
+import io.muzoo.ooc.zork.gameitem.Item;
+import io.muzoo.ooc.zork.gameitem.ItemFactory;
+import io.muzoo.ooc.zork.gameitem.ItemType;
 import io.muzoo.ooc.zork.monster.MonsterFactory;
+import io.muzoo.ooc.zork.monster.MonsterType;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -58,6 +63,7 @@ public class GameMap {
     void generateMap(){
         List<String[]> allNeighbors = new ArrayList<>();
         List<String[]> allMonster = new ArrayList<>();
+        List<String[]> allItem = new ArrayList<>();
         String[] arr;
         try {
             Scanner scanner = new Scanner(this.base);
@@ -78,11 +84,15 @@ public class GameMap {
                     current = scanner.next();
                     arr = stringtoArray(current);
                     allMonster.add(arr);
+                    current = scanner.next();
+                    arr = stringtoArray(current);
+                    allItem.add(arr);
                 }
             }
             generateAreaPath(allNeighbors);
             printAreas();
             generateMonster(allMonster);
+            genarateItem(allItem);
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -111,24 +121,48 @@ public class GameMap {
         for (String[] monsters : allMonster) {
             for (String monster : monsters) {
                 String name = monster.substring(0, monster.indexOf("="));
-                String info;
                 int amount = Integer.parseInt(monster.replaceAll("[\\D]", ""));
                 for (int j = 0; j < amount; j++) {
                     if (gameLibrary.smallMonstersBook.containsKey(name)) {
-                        info = gameLibrary.smallMonstersBook.get(name).getKey();
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.SmallMonster, name, info));
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.SmallMonster, name));
                     } else if (gameLibrary.bigMonstersBook.containsKey(name)) {
-                        info = gameLibrary.bigMonstersBook.get(name).getKey();
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.BigMonster, name, info));
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.BigMonster, name));
                     } else if (gameLibrary.dragonBook.containsKey(name)) {
-                        info = gameLibrary.dragonBook.get(name).getKey();
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.Dragon, name, info));
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.Dragon, name));
                     }
                 }
             }
             i++;
         }
     }
+
+    void genarateItem(List<String[]> allItem) {
+        int i = 1;
+        ItemFactory itemFactory = new ItemFactory();
+        for (String[] items : allItem) {
+            for (String item : items) {
+                String name = item.substring(0, item.indexOf("="));
+                int amount = Integer.parseInt(item.replaceAll("[\\D]", ""));
+                if (gameLibrary.healItemBook.containsKey(name)) {
+                    areas.get(i).addItems(itemFactory.createItem(ItemType.HealItem, name), amount);
+                } else if (gameLibrary.maxHealItemBook.contains(name)) {
+                    areas.get(i).addItems(itemFactory.createItem(ItemType.MaxHealItem, name), amount);
+                } else if (gameLibrary.smallHealthItemBook.contains(name)) {
+                    areas.get(i).addItems(itemFactory.createItem(ItemType.SmallHealthItem, name), amount);
+                } else if (gameLibrary.largeHealthItemBook.contains(name)) {
+                    areas.get(i).addItems(itemFactory.createItem(ItemType.LargeHealthItem, name), amount);
+                } else if (gameLibrary.smallAttackItemBook.contains(name)) {
+                    areas.get(i).addItems(itemFactory.createItem(ItemType.SmallAttackItem, name), amount);
+                } else if (gameLibrary.largeAttackItemBook.contains(name)) {
+                    areas.get(i).addItems(itemFactory.createItem(ItemType.LargeAttackItem, name), amount);
+                } else if (gameLibrary.victoryItem.contains(name)) {
+                    areas.get(i).addItems(itemFactory.createItem(ItemType.VictoryItem, name), amount);
+                }
+            }
+            i++;
+        }
+    }
+
 
     public void printAreas() {
         StringBuilder allAreas = new StringBuilder();

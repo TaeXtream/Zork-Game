@@ -1,13 +1,13 @@
 package io.muzoo.ooc.zork.monster;
 
+import io.muzoo.ooc.zork.gamemap.GameLibrary;
+
 public class MonsterFactory {
 
-    public enum MonsterType {
-        SmallMonster, BigMonster, Dragon
-    }
+    GameLibrary gameLibrary = new GameLibrary();
 
-    public Monster createMonster(MonsterType type){
-        switch (type){
+    public Monster createMonster(MonsterType type) {
+        switch (type) {
             case SmallMonster:
                 return new SmallMonster();
             case BigMonster:
@@ -21,11 +21,11 @@ public class MonsterFactory {
     public Monster createMonster(MonsterType type, String name) {
         switch (type) {
             case SmallMonster:
-                return new SmallMonster(name);
+                return new SmallMonster(name, gameLibrary.getSmallMonstersBook().get(name).getKey());
             case BigMonster:
-                return new BigMonster(name);
+                return new BigMonster(name, gameLibrary.getBigMonstersBook().get(name).getKey());
             case Dragon:
-                return new Dragon(name);
+                return new Dragon(name, gameLibrary.getDragonBook().get(name).getKey());
         }
         throw new IllegalArgumentException("Unknown Monster Type");
     }

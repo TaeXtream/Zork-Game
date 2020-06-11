@@ -14,12 +14,12 @@ Items={GreenHerb=4}
 Area2 
 exit={west=Area1,east=Area3}
 Monster={Conga=4}
-Items={GreenHerb=4}
+Items={GreenHerb=4,Mangadora=2}
 
 Area3  
 exit={east=Area2,north=Area4}
 Monster={Lagiacrus=1,Maccao=2}
-Items={MightSeed=1}
+Items={GreenHerb=4}
 
 Area4  
 exit={south=Area3,west=Area5}
@@ -29,7 +29,7 @@ Items={Honey=2}
 Area5  
 exit={east=Area4,west=Area6}
 Monster={Rathalos=1,Conga=2}
-Items={MightSeed=1}
+Items={Mangadora=2}
 
 Area6  
 exit={south=Area1,east=Area5,north=Area7}
@@ -44,9 +44,10 @@ Items={GreenHerb=4}
 Area8 
 exit={west=Area7,south=Area5,east=Area9}
 Monster={Remobra=4}
-Items={Honey=2,MightSeed=1}
+Items={Honey=2}
 
 Area9 
 exit={west=Area8}
 Monster={Valstrax=1}
+Items={None=0}
 

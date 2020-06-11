@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Player extends Entity {
     private final List<Item> inventory = new ArrayList<>();
-    Weapon weapon;
+    public Weapon weapon;
 
     public Player(Weapon weapon){
         this.weapon = weapon;

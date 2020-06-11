@@ -1,13 +1,18 @@
 package io.muzoo.ooc.zork.gameitem;
 
+import io.muzoo.ooc.zork.character.Player;
+
 public abstract class Item {
-    private final String name;
+    private String name;
     private String info;
 
+    public Item(String newName) {
+        this.name = newName;
+    }
 
     public Item(String newName, String info) {
-        name = newName;
-        info = info;
+        this.name = newName;
+        this.info = info;
     }
 
     public String getName() {
@@ -17,4 +22,6 @@ public abstract class Item {
     public String getInfo() {
         return info;
     }
+
+    public abstract void itemEffect(Player player);
 }

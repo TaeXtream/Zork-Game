@@ -53,6 +53,16 @@ public class Area {
         System.out.println(monsterList);
     }
 
+    void printItemList() {
+        StringBuilder itemList = new StringBuilder();
+        itemList.append("{ ");
+        for (Item item : items) {
+            itemList.append(item.getName()).append(" ");
+        }
+        itemList.append("}");
+        System.out.println(itemList);
+    }
+
     public void setExit(String direction, Area neighbor) {
         this.neighbor.put(direction, neighbor);
     }
@@ -79,22 +89,29 @@ public class Area {
     }
 
     public void removeItem(String itemname){
-        for(int i = 0; i<items.size(); i++){
-            if(items.get(i).getName().equals(itemname)){
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equals(itemname)) {
                 items.remove(i);
                 break;
             }
         }
     }
 
-    public void setItem(Item newitem){ items.add(newitem); }
-
-    public void setItems(Collection<Item> items){
-        for (Item item : items)
-            setItem(item);
+    public void addItem(Item newitem) {
+        items.add(newitem);
     }
 
-    public String getRoomItem(){
+    public void addItems(Item item, int amount) {
+        for (int i = 0; i < amount; i++)
+            addItem(item);
+    }
+
+    public void addItems(Collection<Item> items) {
+        for (Item item : items)
+            addItem(item);
+    }
+
+    public String getRoomItem() {
         String ritem = "Nothing";
         for (Item item : items) {
             ritem = item.getName() + " ";

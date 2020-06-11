@@ -1,11 +1,6 @@
 name:Ruined Pinnacle
 discription:Ruined Pinnacle has never been explored or known about until recently. This place is believed to be where a lost civilization once lived. All sorts of ruins and ancient trees have been spotted in this area thus far. Certain plants and grains grow in Ruined Pinnacle. These plants attract a large number of herbivores. The plentiful prey here also draws in more predators. Legend said that this place is now home of the legendary Sky Comet Dragon.
 
-Map_Monsters:
-Small={Aptonoth,Remobra,Maccao,Conga}
-Large={Lagiacrus,Rathalos,GoreMagala}
-Dragon={Valstrax}
-
 Areas:
 
 Camp

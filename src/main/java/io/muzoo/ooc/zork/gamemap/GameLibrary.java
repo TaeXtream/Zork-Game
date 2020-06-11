@@ -14,7 +14,7 @@ public class GameLibrary {
     File itemsData;
 
     public GameLibrary() {
-        writeMonsterBook();
+        writeAllMonsterBook();
 
     }
 
@@ -34,7 +34,7 @@ public class GameLibrary {
         System.out.println(book.keySet().toString());
     }
 
-    void writeMonsterBook() {
+    void writeAllMonsterBook() {
         try {
             Scanner scanner = new Scanner(monsterData);
             while (scanner.hasNextLine()) {

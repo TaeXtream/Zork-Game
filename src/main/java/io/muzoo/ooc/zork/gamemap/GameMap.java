@@ -11,9 +11,7 @@ public class GameMap {
     String description;
     List<Area> areas = new ArrayList<>();
     File base;
-    List<String> smallMonsters = new ArrayList<>();
-    List<String> bigMonsters = new ArrayList<>();
-    List<String> dragon = new ArrayList<>();
+    GameLibrary gameLibrary = new GameLibrary();
 
     public GameMap(String path) {
         File file = new File(path);
@@ -65,17 +63,7 @@ public class GameMap {
             Scanner scanner = new Scanner(this.base);
             while (scanner.hasNext()) {
                 String current = scanner.next();
-                if (current.contains("Map_Monsters:")) {
-                    current = scanner.next();
-                    arr = stringtoArray(current);
-                    smallMonsters.addAll(Arrays.asList(arr));
-                    current = scanner.next();
-                    arr = stringtoArray(current);
-                    bigMonsters.addAll(Arrays.asList(arr));
-                    current = scanner.next();
-                    arr = stringtoArray(current);
-                    dragon.addAll(Arrays.asList(arr));
-                } else if (current.contains("Camp")) {
+                if (current.contains("Camp")) {
                     Area camp = new Area("Camp");
                     areas.add(camp);
                     current = scanner.next("exit.*");
@@ -123,17 +111,21 @@ public class GameMap {
         for (String[] monsters : allMonster) {
             for (String monster : monsters) {
                 String name = monster.substring(0, monster.indexOf("="));
+                String info;
                 int amount = Integer.parseInt(monster.replaceAll("[\\D]", ""));
                 for (int j = 0; j < amount; j++) {
-                    if (smallMonsters.contains(name)) {
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.SmallMonster, name));
-                    } else if (bigMonsters.contains(name)) {
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.BigMonster, name));
-                    } else
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.Dragon, name));
+                    if (gameLibrary.smallMonstersBook.containsKey(name)) {
+                        info = gameLibrary.smallMonstersBook.get(name).getKey();
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.SmallMonster, name, info));
+                    } else if (gameLibrary.bigMonstersBook.containsKey(name)) {
+                        info = gameLibrary.bigMonstersBook.get(name).getKey();
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.BigMonster, name, info));
+                    } else if (gameLibrary.dragonBook.containsKey(name)) {
+                        info = gameLibrary.dragonBook.get(name).getKey();
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterFactory.MonsterType.Dragon, name, info));
+                    }
                 }
             }
-            areas.get(i).printMonsterList();
             i++;
         }
     }

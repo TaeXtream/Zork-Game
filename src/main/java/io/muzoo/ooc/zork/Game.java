@@ -31,7 +31,7 @@ public class Game {
 
     public void process(){
         Scanner scanner = new Scanner(System.in);
-        String cmd = "";
+        String cmd;
         while (true){
             System.out.print("> ");
             cmd = scanner.next();

@@ -11,11 +11,11 @@ public class Main {
 
         Game game = new Game();
         game.start();
-        GameMap gameMap = new GameMap(new File("RuinPinnacleMap\\RuinPinnacleData.txt"));
-        GameLibrary gameLibrary = new GameLibrary();
-        gameLibrary.listBookEntry(gameLibrary.getSmallMonstersBook());
-        gameLibrary.listBookEntry(gameLibrary.getBigMonstersBook());
-        gameLibrary.listBookEntry(gameLibrary.getDragonBook());
+//        GameMap gameMap = new GameMap(new File("RuinPinnacleMap\\RuinPinnacleData.txt"));
+        //       GameLibrary gameLibrary = new GameLibrary();
+//        gameLibrary.listBookEntry(gameLibrary.getSmallMonstersBook());
+//        gameLibrary.listBookEntry(gameLibrary.getBigMonstersBook());
+//        gameLibrary.listBookEntry(gameLibrary.getDragonBook());
 
     }
 }

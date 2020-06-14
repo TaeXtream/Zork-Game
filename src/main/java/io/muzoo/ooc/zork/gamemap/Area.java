@@ -131,5 +131,31 @@ public class Area {
         monsters.removeIf(monster -> !monster.isAlive());
     }
 
+    public String printAreaInfo() {
+
+        StringBuilder info = new StringBuilder();
+        info.append("You are in ").append(this.getName());
+        info.append('\n');
+        info.append("Exits: ");
+        if (this.getExit("north") != null) {
+            info.append("north ");
+        }
+        if (this.getExit("east") != null) {
+            info.append("east ");
+        }
+        if (this.getExit("south") != null) {
+            info.append("south ");
+        }
+        if (this.getExit("west") != null) {
+            info.append("west ");
+        }
+        if (!this.getName().equals("Camp")) {
+            info.append('\n');
+            info.append("This Area have:" + " ");
+            info.append(this.getRoomItem()).append(" ");
+        }
+        return info.toString();
+    }
+
 
 }

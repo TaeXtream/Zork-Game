@@ -1,6 +1,13 @@
 package io.muzoo.ooc.zork.command;
 
-public interface Command {
+import io.muzoo.ooc.zork.Game;
 
-    void execute(String arg);
+public abstract class Command {
+    Game game;
+
+    public Command(Game game) {
+        this.game = game;
+    }
+
+    public abstract void execute(String arg);
 }

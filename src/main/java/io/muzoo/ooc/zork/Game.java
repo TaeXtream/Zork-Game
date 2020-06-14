@@ -1,25 +1,61 @@
 package io.muzoo.ooc.zork;
 
 import io.muzoo.ooc.zork.character.Player;
+import io.muzoo.ooc.zork.command.CommandLine;
+import io.muzoo.ooc.zork.command.Parser;
 import io.muzoo.ooc.zork.gameitem.Weapon;
 import io.muzoo.ooc.zork.gamemap.Area;
 import io.muzoo.ooc.zork.gamemap.GameMap;
 import io.muzoo.ooc.zork.command.Command;
 import io.muzoo.ooc.zork.command.CommandFactory;
+import io.muzoo.ooc.zork.monster.Monster;
 
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+
 
 public class Game {
     GameMap gameMap;
     Player player;
+    Monster target;
     Area currentArea;
+    CommandFactory commandFactory;
+    Parser parser;
+    boolean finished = false;
+    List<String> mapFiles = new ArrayList<>();
 
-    public Game(String argv) {
+    {
+        mapFiles.add("GameMapdata\\RuinPinnacleData.txt");
+    }
+
+    Game() {
+        start();
+        try {
+            String input = inputMap();
+            initialize(input);
+        } catch (InputMismatchException i) {
+            System.out.println("Unknown Map Name");
+            i.printStackTrace();
+        }
+    }
+
+    void initialize(String mapPath) {
         player = new Player(new Weapon(10));
-        gameMap = new GameMap(argv);
+        gameMap = new GameMap(mapPath);
         currentArea = gameMap.getArea("Camp");
+        commandFactory = new CommandFactory(this);
+        parser = new Parser(commandFactory);
 
+    }
+
+    String inputMap() {
+        Scanner scanner = new Scanner(System.in);
+        String map = scanner.nextLine();
+        for (String mappath : mapFiles) {
+            if (mappath.contains(map))
+                return mappath;
+        }
+        throw new InputMismatchException();
     }
 
     public void start() {
@@ -27,37 +63,30 @@ public class Game {
             titleScreen();
             TimeUnit.SECONDS.sleep(2);
             printWelcome();
+            System.out.print("> ");
         } catch (InterruptedException ignored) {
         }
 
     }
 
-    public void play(GameMap gameMap){
-
-    }
-
-    public void process(){
-        Scanner scanner = new Scanner(System.in);
-        String cmd;
-        while (true){
-            System.out.print("> ");
-            cmd = scanner.next();
-            String[] words = cmd.split(" ");
-            Command command = CommandFactory.getCommand(words[0]);
-            if (command != null){
-                command.execute(words.length == 1 ? null : words[1]);
-            }
+    public void play() {
+        gameMap.printIntro();
+        while (!finished) {
+            CommandLine commandLine = parser.getCommandLine();
+            Command command = commandFactory.getCommand(commandLine.getCommandWord());
+            command.execute(commandLine.getSecondWord());
         }
+        System.out.println("Thank You For Playing");
+
     }
 
 
-
-    public void titleScreen(){
+    public void titleScreen() {
         String title =
                 "===============================\n" +
                         "       Monster Hunter\n" +
                         "            Zork\n" +
-                "===============================\n";
+                        "===============================\n";
         System.out.println(title);
     }
 
@@ -68,8 +97,39 @@ public class Game {
         System.out.println("And explore a map.");
         System.out.println("Type 'help' if you need help.");
         System.out.println();
-        System.out.println("Please Choose your Map.\n");
+        System.out.println("Please Input your Map.");
     }
 
 
+    public Area getCurrentArea() {
+        return currentArea;
+    }
+
+    public void setCurrentArea(Area currentArea) {
+        this.currentArea = currentArea;
+    }
+
+    public GameMap getGameMap() {
+        return gameMap;
+    }
+
+    public void finished() {
+        this.finished = true;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public CommandFactory getCommandFactory() {
+        return commandFactory;
+    }
+
+    public Monster getTarget() {
+        return target;
+    }
+
+    public void setTarget(Monster target) {
+        this.target = target;
+    }
 }

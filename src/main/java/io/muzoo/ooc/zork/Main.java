@@ -10,8 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         Game game = new Game();
-        game.start();
-        GameMap gameMap = new GameMap(new File("RuinPinnacleMap\\RuinPinnacleData.txt"));
+        game.play();
 //        gameMap.printIntro();
 //        gameMap.printDescription();
 //        GameLibrary gameLibrary = new GameLibrary();

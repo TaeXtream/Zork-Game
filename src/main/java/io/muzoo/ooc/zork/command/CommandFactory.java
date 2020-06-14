@@ -12,11 +12,11 @@ public class CommandFactory {
     }
 
     private final Map<String, Command> commandMap = new HashMap<>();
-
     {
         commandMap.put("quit", new QuitCommand(game));
         commandMap.put("go", new GoCommand(game));
         commandMap.put("take", new TakeCommand(game));
+        commandMap.put("drop", new DropCommand(game));
         commandMap.put("attack", new AttackCommand(game));
         commandMap.put("use", new UseCommand(game));
         commandMap.put("status", new StatusCommand(game));

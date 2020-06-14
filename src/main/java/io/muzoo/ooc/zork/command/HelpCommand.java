@@ -9,7 +9,7 @@ public class HelpCommand extends Command {
 
     @Override
     public void execute(String arg) {
-
+        printHelp();
     }
 
     void printHelp() {
@@ -17,6 +17,7 @@ public class HelpCommand extends Command {
         System.out.println(game.getCommandFactory().getCommandMap().keySet().toString());
         System.out.println("Your objective is to hunt down the dragon.");
         System.out.println("You can fight other monster to gain an upgrade.");
+        System.out.println("There are useful item you can take from the map.");
     }
 
 }

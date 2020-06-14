@@ -12,6 +12,7 @@ public class HealMaxitem extends Healitem {
         player.setHealth(player.getHealthMax());
     }
 
+    @Override
     public void printEffect() {
         System.out.println("Heal to full health");
     }

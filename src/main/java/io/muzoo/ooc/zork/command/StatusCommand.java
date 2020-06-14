@@ -10,12 +10,7 @@ public class StatusCommand extends Command {
 
     @Override
     public void execute(String arg) {
-        printStatus();
+        game.getPlayer().printPlayerStatus();
     }
 
-    void printStatus() {
-        game.getPlayer().printHealth();
-        game.getPlayer().printDamage();
-        game.getPlayer().printInventory();
-    }
 }

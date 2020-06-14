@@ -11,4 +11,9 @@ public class VictoryItem extends Item {
     public void itemEffect(Player player) {
 
     }
+
+    @Override
+    public void printEffect() {
+
+    }
 }

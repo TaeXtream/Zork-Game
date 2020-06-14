@@ -19,4 +19,9 @@ public class HealthUpgradeItem extends UpgradeItem {
     public void itemEffect(Player player) {
         player.setHealthMax(player.getHealthMax() + addHealth);
     }
+
+    @Override
+    public void printEffect() {
+        System.out.println("Upgrade Player health by " + this.addHealth);
+    }
 }

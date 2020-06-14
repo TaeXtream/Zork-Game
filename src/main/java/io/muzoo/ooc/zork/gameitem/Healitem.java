@@ -20,8 +20,9 @@ public class Healitem extends Item {
         this.health = health;
     }
 
+    @Override
     public void printEffect() {
-        System.out.printf("Heal %d health when use\n", health);
+        System.out.printf("Heal %d health when used\n", health);
     }
 
     @Override

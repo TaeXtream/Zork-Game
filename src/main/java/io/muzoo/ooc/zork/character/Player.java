@@ -43,5 +43,11 @@ public class Player extends Entity {
         }
     }
 
+    public void printPlayerStatus() {
+        this.printHealth();
+        this.printDamage();
+        this.printInventory();
+    }
+
 
 }

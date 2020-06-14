@@ -5,6 +5,7 @@ import io.muzoo.ooc.zork.command.CommandLine;
 import io.muzoo.ooc.zork.command.Parser;
 import io.muzoo.ooc.zork.gameitem.Weapon;
 import io.muzoo.ooc.zork.gamemap.Area;
+import io.muzoo.ooc.zork.gamemap.GameLibrary;
 import io.muzoo.ooc.zork.gamemap.GameMap;
 import io.muzoo.ooc.zork.command.Command;
 import io.muzoo.ooc.zork.command.CommandFactory;
@@ -22,8 +23,8 @@ public class Game {
     CommandFactory commandFactory;
     Parser parser;
     boolean finished = false;
+    GameLibrary gameLibrary = new GameLibrary();
     List<String> mapFiles = new ArrayList<>();
-
     {
         mapFiles.add("GameMapdata\\RuinPinnacleData.txt");
     }
@@ -75,9 +76,21 @@ public class Game {
             CommandLine commandLine = parser.getCommandLine();
             Command command = commandFactory.getCommand(commandLine.getCommandWord());
             command.execute(commandLine.getSecondWord());
+            if (!player.isAlive()) {
+                finished = true;
+            } else if (Collections.disjoint(player.getInventory(), gameLibrary.getVictoryItem())) {
+                finished = true;
+            }
+
         }
         System.out.println("Thank You For Playing");
 
+    }
+
+    void combat(Player player, Monster monster) {
+        while (player.isAlive() || monster.isAlive()) {
+
+        }
     }
 
 
@@ -132,4 +145,10 @@ public class Game {
     public void setTarget(Monster target) {
         this.target = target;
     }
+
+    public GameLibrary getGameLibrary() {
+        return gameLibrary;
+    }
+
+
 }

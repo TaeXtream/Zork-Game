@@ -24,4 +24,6 @@ public abstract class Item {
     }
 
     public abstract void itemEffect(Player player);
+
+    public abstract void printEffect();
 }

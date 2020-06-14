@@ -1,26 +1,33 @@
 package io.muzoo.ooc.zork;
 
+import io.muzoo.ooc.zork.character.Player;
+import io.muzoo.ooc.zork.gameitem.Weapon;
+import io.muzoo.ooc.zork.gamemap.Area;
 import io.muzoo.ooc.zork.gamemap.GameMap;
 import io.muzoo.ooc.zork.command.Command;
 import io.muzoo.ooc.zork.command.CommandFactory;
 
-import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Game {
-    List<GameMap> allGameMap;
+    GameMap gameMap;
+    Player player;
+    Area currentArea;
 
-    public Game(){
+    public Game(String argv) {
+        player = new Player(new Weapon(10));
+        gameMap = new GameMap(argv);
+        currentArea = gameMap.getArea("Camp");
+
     }
 
     public void start() {
-        try{
+        try {
             titleScreen();
             TimeUnit.SECONDS.sleep(2);
             printWelcome();
-        }
-        catch (InterruptedException ignored){
+        } catch (InterruptedException ignored) {
         }
 
     }
@@ -63,5 +70,6 @@ public class Game {
         System.out.println();
         System.out.println("Please Choose your Map.\n");
     }
-    
+
+
 }

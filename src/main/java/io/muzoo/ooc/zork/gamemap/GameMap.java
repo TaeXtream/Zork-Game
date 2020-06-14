@@ -92,7 +92,7 @@ public class GameMap {
             }
             generateAreaPath(allNeighbors);
             generateMonster(allMonster);
-            genarateItem(allItem);
+            generateItem(allItem);
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -136,7 +136,7 @@ public class GameMap {
         }
     }
 
-    void genarateItem(List<String[]> allItem) {
+    void generateItem(List<String[]> allItem) {
         int i = 1;
         ItemFactory itemFactory = new ItemFactory();
         for (String[] items : allItem) {
@@ -191,6 +191,14 @@ public class GameMap {
     String[] stringtoArray(String s) {
         s = s.substring(s.indexOf("{") + 1, s.indexOf("}"));
         return s.split(",");
+    }
+
+    public Area getArea(String argv) {
+        for (Area area : areas) {
+            if (area.getName().equals(argv))
+                return area;
+        }
+        return null;
     }
 
 

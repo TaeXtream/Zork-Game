@@ -1,10 +1,12 @@
 package io.muzoo.ooc.zork.monster;
 
 
+import io.muzoo.ooc.zork.gameitem.Item;
+
 public class Dragon extends Monster {
     private final int superAttack;
 
-    public Dragon(){
+    public Dragon() {
         this.setHealthMax(200);
         this.setHostile(true);
         this.setAttack(30);
@@ -21,7 +23,7 @@ public class Dragon extends Monster {
         this.superAttack = 80;
     }
 
-    public Dragon(String name, String info){
+    public Dragon(String name, String info) {
         this.setHealthMax(200);
         this.setHostile(true);
         this.setName(name);
@@ -29,6 +31,17 @@ public class Dragon extends Monster {
         this.setAttack(30);
         this.setHealth(200);
         this.superAttack = 80;
+    }
+
+    public Dragon(String name, String info, Item drop) {
+        this.setHealthMax(200);
+        this.setHostile(true);
+        this.setName(name);
+        this.setInfo(info);
+        this.setAttack(30);
+        this.setHealth(200);
+        this.superAttack = 80;
+        this.drop = drop;
     }
 
     public int getSuperAttack() {

@@ -6,18 +6,18 @@ import java.io.*;
 import java.util.*;
 
 public class GameLibrary {
-    Map<String, Pair<String, String>> smallMonstersBook = new HashMap<>();
-    Map<String, Pair<String, String>> bigMonstersBook = new HashMap<>();
-    Map<String, Pair<String, String>> dragonBook = new HashMap<>();
-    Map<String, Integer> healItemBook = new HashMap<>();
-    List<String> maxHealItemBook = new ArrayList<>();
-    List<String> smallHealthItemBook = new ArrayList<>();
-    List<String> largeHealthItemBook = new ArrayList<>();
-    List<String> smallAttackItemBook = new ArrayList<>();
-    List<String> largeAttackItemBook = new ArrayList<>();
-    List<String> victoryItem = new ArrayList<>();
-    File monsterData = new File("mapdata\\MonsterLibrary.txt");
-    File itemsData = new File("mapdata\\ItemLibrary.txt");
+    private Map<String, Pair<String, String>> smallMonstersBook = new HashMap<>();
+    private Map<String, Pair<String, String>> bigMonstersBook = new HashMap<>();
+    private Map<String, Pair<String, String>> dragonBook = new HashMap<>();
+    private Map<String, Integer> healItemBook = new HashMap<>();
+    private List<String> maxHealItemBook = new ArrayList<>();
+    private List<String> smallHealthItemBook = new ArrayList<>();
+    private List<String> largeHealthItemBook = new ArrayList<>();
+    private List<String> smallAttackItemBook = new ArrayList<>();
+    private List<String> largeAttackItemBook = new ArrayList<>();
+    private List<String> victoryItem = new ArrayList<>();
+    private File monsterData = new File("mapdata\\MonsterLibrary.txt");
+    private File itemsData = new File("mapdata\\ItemLibrary.txt");
 
     public GameLibrary() {
         writeAllMonsterBook();

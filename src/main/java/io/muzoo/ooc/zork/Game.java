@@ -97,7 +97,7 @@ public class Game {
                 this.target = currentArea.getMonster(targetname);
                 Command command = commandFactory.getCommand(commandLine.getCommandWord());
                 command.execute(commandLine.getSecondWord());
-                if (this.target.getClass().equals(Dragon.class)) {
+                if (this.target.getClass().getName().contains("Dragon")) {
                     dragonCombat(this.player, (Dragon) this.target);
                 } else {
                     monsterCombat(this.player, this.target);
@@ -138,7 +138,7 @@ public class Game {
             } else if (monster.getHealth() <= 0) {
                 System.out.println(monster.getName() + " has been kill!");
                 monster.dead();
-                if (!monster.getDrop().getClass().equals(Healitem.class)) {
+                if (!monster.getDrop().getClass().getName().contains("Healitem")) {
                     System.out.println("You obtain " + monster.getDrop().getName() + "from killing " + monster.getName());
                     monster.getDrop().printEffect();
                     monster.getDrop().itemEffect(this.player);

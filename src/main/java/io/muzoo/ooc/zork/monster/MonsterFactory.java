@@ -1,5 +1,6 @@
 package io.muzoo.ooc.zork.monster;
 
+import io.muzoo.ooc.zork.gameitem.Item;
 import io.muzoo.ooc.zork.gamemap.GameLibrary;
 
 public class MonsterFactory {
@@ -38,6 +39,18 @@ public class MonsterFactory {
                 return new BigMonster(name, info);
             case Dragon:
                 return new Dragon(name, info);
+        }
+        throw new IllegalArgumentException("Unknown Monster Type");
+    }
+
+    public Monster createMonster(MonsterType type, String name, String info, Item drop) {
+        switch (type) {
+            case SmallMonster:
+                return new SmallMonster(name, info, drop);
+            case BigMonster:
+                return new BigMonster(name, info, drop);
+            case Dragon:
+                return new Dragon(name, info, drop);
         }
         throw new IllegalArgumentException("Unknown Monster Type");
     }

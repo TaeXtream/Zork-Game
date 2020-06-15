@@ -9,6 +9,9 @@ public class AttackCommand extends Command {
 
     @Override
     public void execute(String arg) {
+        if (game.getTarget() == null) {
+            return;
+        }
         System.out.println("Attack " + arg);
         attacking();
     }

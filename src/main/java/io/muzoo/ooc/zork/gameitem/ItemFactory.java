@@ -23,6 +23,25 @@ public class ItemFactory {
             case VictoryItem:
                 return new VictoryItem(name);
         }
-        throw new IllegalArgumentException("Unknown Monster Type");
+        throw new IllegalArgumentException("Unknown Item Type");
+    }
+
+    public Item createItem(String name) {
+        if (gameLibrary.getHealItemBook().containsKey(name)) {
+            return createItem(ItemType.HealItem, name);
+        } else if (gameLibrary.getMaxHealItemBook().contains(name)) {
+            return createItem(ItemType.MaxHealItem, name);
+        } else if (gameLibrary.getSmallHealthItemBook().contains(name)) {
+            return createItem(ItemType.SmallHealthItem, name);
+        } else if (gameLibrary.getLargeHealthItemBook().contains(name)) {
+            return createItem(ItemType.LargeHealthItem, name);
+        } else if (gameLibrary.getSmallAttackItemBook().contains(name)) {
+            return createItem(ItemType.SmallAttackItem, name);
+        } else if (gameLibrary.getLargeAttackItemBook().contains(name)) {
+            return createItem(ItemType.LargeAttackItem, name);
+        } else if (gameLibrary.getVictoryItem().contains(name)) {
+            return createItem(ItemType.VictoryItem, name);
+        }
+        throw new IllegalArgumentException("Unknown Item Type");
     }
 }

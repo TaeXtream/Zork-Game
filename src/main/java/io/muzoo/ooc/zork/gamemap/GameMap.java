@@ -1,5 +1,6 @@
 package io.muzoo.ooc.zork.gamemap;
 
+import io.muzoo.ooc.zork.gameitem.Item;
 import io.muzoo.ooc.zork.gameitem.ItemFactory;
 import io.muzoo.ooc.zork.gameitem.ItemType;
 import io.muzoo.ooc.zork.monster.MonsterFactory;
@@ -120,17 +121,24 @@ public class GameMap {
     void generateMonster(List<String[]> allMonster) {
         int i = 1;
         MonsterFactory monsterFactory = new MonsterFactory();
+        ItemFactory itemFactory = new ItemFactory();
         for (String[] monsters : allMonster) {
             for (String monster : monsters) {
                 String name = monster.substring(0, monster.indexOf("="));
                 int amount = Integer.parseInt(monster.replaceAll("[\\D]", ""));
                 for (int j = 0; j < amount; j++) {
-                    if (gameLibrary.smallMonstersBook.containsKey(name)) {
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.SmallMonster, name));
-                    } else if (gameLibrary.bigMonstersBook.containsKey(name)) {
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.BigMonster, name));
-                    } else if (gameLibrary.dragonBook.containsKey(name)) {
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.Dragon, name));
+                    if (gameLibrary.getSmallMonstersBook().containsKey(name)) {
+                        String info = gameLibrary.getSmallMonstersBook().get(name).getKey();
+                        Item drop = itemFactory.createItem(gameLibrary.getSmallMonstersBook().get(name).getValue());
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.SmallMonster, name, info, drop));
+                    } else if (gameLibrary.getBigMonstersBook().containsKey(name)) {
+                        String info = gameLibrary.getBigMonstersBook().get(name).getKey();
+                        Item drop = itemFactory.createItem(gameLibrary.getBigMonstersBook().get(name).getValue());
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.BigMonster, name, info, drop));
+                    } else if (gameLibrary.getDragonBook().containsKey(name)) {
+                        String info = gameLibrary.getDragonBook().get(name).getKey();
+                        Item drop = itemFactory.createItem(gameLibrary.getDragonBook().get(name).getValue());
+                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.Dragon, name, info, drop));
                     }
                 }
             }
@@ -144,21 +152,9 @@ public class GameMap {
         for (String[] items : allItem) {
             for (String item : items) {
                 String name = item.substring(0, item.indexOf("="));
-                int amount = Integer.parseInt(item.replaceAll("[\\D]", ""));
-                if (gameLibrary.healItemBook.containsKey(name)) {
-                    areas.get(i).addItems(itemFactory.createItem(ItemType.HealItem, name), amount);
-                } else if (gameLibrary.maxHealItemBook.contains(name)) {
-                    areas.get(i).addItems(itemFactory.createItem(ItemType.MaxHealItem, name), amount);
-                } else if (gameLibrary.smallHealthItemBook.contains(name)) {
-                    areas.get(i).addItems(itemFactory.createItem(ItemType.SmallHealthItem, name), amount);
-                } else if (gameLibrary.largeHealthItemBook.contains(name)) {
-                    areas.get(i).addItems(itemFactory.createItem(ItemType.LargeHealthItem, name), amount);
-                } else if (gameLibrary.smallAttackItemBook.contains(name)) {
-                    areas.get(i).addItems(itemFactory.createItem(ItemType.SmallAttackItem, name), amount);
-                } else if (gameLibrary.largeAttackItemBook.contains(name)) {
-                    areas.get(i).addItems(itemFactory.createItem(ItemType.LargeAttackItem, name), amount);
-                } else if (gameLibrary.victoryItem.contains(name)) {
-                    areas.get(i).addItems(itemFactory.createItem(ItemType.VictoryItem, name), amount);
+                if (!name.equals("None")) {
+                    int amount = Integer.parseInt(item.replaceAll("[\\D]", ""));
+                    areas.get(i).addItems(itemFactory.createItem(name), amount);
                 }
             }
             i++;

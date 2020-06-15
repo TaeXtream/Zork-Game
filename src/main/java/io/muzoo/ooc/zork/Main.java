@@ -1,6 +1,9 @@
 package io.muzoo.ooc.zork;
 
 
+import io.muzoo.ooc.zork.monster.Dragon;
+import io.muzoo.ooc.zork.monster.Monster;
+
 public class Main {
 
     public static void main(String[] args) {

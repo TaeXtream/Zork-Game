@@ -1,15 +1,11 @@
 package io.muzoo.ooc.zork;
 
-import io.muzoo.ooc.zork.gamemap.GameLibrary;
-import io.muzoo.ooc.zork.gamemap.GameMap;
-
-import java.io.File;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Game game = new Game();
+        Game game = new Game("GameMapdata\\RuinPinnacleData.txt");
         game.play();
 //        gameMap.printIntro();
 //        gameMap.printDescription();

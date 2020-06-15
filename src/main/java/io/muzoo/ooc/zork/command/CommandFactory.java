@@ -6,13 +6,10 @@ import java.util.*;
 
 public class CommandFactory {
     Game game;
+    private final Map<String, Command> commandMap = new HashMap<>();
 
     public CommandFactory(Game game) {
         this.game = game;
-    }
-
-    private final Map<String, Command> commandMap = new HashMap<>();
-    {
         commandMap.put("quit", new QuitCommand(game));
         commandMap.put("go", new GoCommand(game));
         commandMap.put("take", new TakeCommand(game));

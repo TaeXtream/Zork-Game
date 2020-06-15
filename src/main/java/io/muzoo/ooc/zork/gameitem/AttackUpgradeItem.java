@@ -14,4 +14,9 @@ public class AttackUpgradeItem extends UpgradeItem {
     public void itemEffect(Player player) {
         player.weapon.addDamage(addDamage);
     }
+
+    @Override
+    public void printEffect() {
+        System.out.println("Upgrade Player attack by " + this.addDamage);
+    }
 }

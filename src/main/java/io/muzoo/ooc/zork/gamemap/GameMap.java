@@ -68,24 +68,26 @@ public class GameMap {
         String[] arr;
         try {
             Scanner scanner = new Scanner(this.base);
-            while (scanner.hasNext()) {
-                String current = scanner.next();
+            while (scanner.hasNextLine()) {
+                String current = scanner.nextLine();
                 if (current.contains("Camp")) {
                     Area camp = new Area("Camp");
                     areas.add(camp);
-                    current = scanner.next("exit.*");
+                    current = scanner.nextLine();
                     arr = stringtoArray(current);
                     allNeighbors.add(arr);
                 } else if (current.matches("Area.*\\d.*")) {
-                    Area area = new Area(current);
+                    String areaInfo = stringCutter(scanner.nextLine(), ":");
+                    areaInfo = areaInfo.replaceAll("\\.", ".\n");
+                    Area area = new Area(current, areaInfo);
                     areas.add(area);
-                    current = scanner.next("exit.*");
+                    current = scanner.nextLine();
                     arr = stringtoArray(current);
                     allNeighbors.add(arr);
-                    current = scanner.next();
+                    current = scanner.nextLine();
                     arr = stringtoArray(current);
                     allMonster.add(arr);
-                    current = scanner.next();
+                    current = scanner.nextLine();
                     arr = stringtoArray(current);
                     allItem.add(arr);
                 }

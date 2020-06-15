@@ -3,10 +3,8 @@ package io.muzoo.ooc.zork.gamemap;
 import io.muzoo.ooc.zork.gameitem.Item;
 import io.muzoo.ooc.zork.monster.Monster;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Area {
     String name;
@@ -43,24 +41,20 @@ public class Area {
         System.out.println(neighborList);
     }
 
-    void printMonsterList() {
+    String getMonsterList() {
         StringBuilder monsterList = new StringBuilder();
-        monsterList.append("{ ");
         for (Monster monster : monsters) {
             monsterList.append(monster.getName()).append(" ");
         }
-        monsterList.append("}");
-        System.out.println(monsterList);
+        return monsterList.toString();
     }
 
-    void printItemList() {
+    String getItemList() {
         StringBuilder itemList = new StringBuilder();
-        itemList.append("{ ");
         for (Item item : items) {
             itemList.append(item.getName()).append(" ");
         }
-        itemList.append("}");
-        System.out.println(itemList);
+        return itemList.toString();
     }
 
     public void setExit(String direction, Area neighbor) {
@@ -72,7 +66,7 @@ public class Area {
     }
 
     public String getDescription() {
-        return description;
+        return description.replaceAll("\\.", ".\n");
     }
 
     public Item getItem(int index){
@@ -111,16 +105,19 @@ public class Area {
             addItem(item);
     }
 
-    public String getRoomItem() {
-        String ritem = "Nothing";
-        for (Item item : items) {
-            ritem = item.getName() + " ";
-        }
-        return ritem;
-    }
 
     public void addMonster(Monster monster) {
         monsters.add(monster);
+    }
+
+    public Monster getMonster(String name) {
+        for (Monster monster : monsters) {
+            if (monster.getName().equals(name)) {
+                return monster;
+            }
+        }
+        System.out.println("That monster is not in this area.");
+        return null;
     }
 
     public void removeMonster(Monster monster) {
@@ -131,7 +128,7 @@ public class Area {
         monsters.removeIf(monster -> !monster.isAlive());
     }
 
-    public String printAreaInfo() {
+    public String getAreaInfo() {
 
         StringBuilder info = new StringBuilder();
         info.append("You are in ").append(this.getName());
@@ -151,8 +148,11 @@ public class Area {
         }
         if (!this.getName().equals("Camp")) {
             info.append('\n');
-            info.append("This Area have:" + " ");
-            info.append(this.getRoomItem()).append(" ");
+            info.append("Items in this area:" + " ");
+            info.append(this.getItemList());
+            info.append('\n');
+            info.append("Monsters in this area:" + " ");
+            info.append(this.getMonsterList());
         }
         return info.toString();
     }

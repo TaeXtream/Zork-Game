@@ -1,6 +1,5 @@
 package io.muzoo.ooc.zork.command;
 
-import io.muzoo.ooc.zork.Game;
 
 import java.util.Scanner;
 

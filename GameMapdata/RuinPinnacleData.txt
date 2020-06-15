@@ -1,6 +1,6 @@
 name:Ruined Pinnacle
-intro:You arrived at Ruined Pinaccle via an airship. An ancient mountain full of mystery. You has a mission to hunt the legendary dragon for research commission.
-discription:Ruined Pinnacle has never been explored or known about until recently. This place is believed to be where a lost civilization once lived. All sorts of ruins and ancient trees have been spotted in this area thus far. Certain plants and grains grow in Ruined Pinnacle. These plants attract a large number of herbivores. The plentiful prey here also draws in more predators. Legend said that this place is now home of the legendary Sky Comet Dragon.
+intro:You arrived at Ruined Pinaccle via an airship.An ancient mountain full of mystery.You has a mission to hunt the legendary dragon for research commission.
+discription:Ruined Pinnacle has never been explored or known about until recently.This place is believed to be where a lost civilization once lived.All sorts of ruins and ancient trees have been spotted in this area thus far.Certain plants and grains grow in Ruined Pinnacle.These plants attract a large number of herbivores.The plentiful prey here also draws in more predators.Legend said that this place is now home of the legendary Sky Comet Dragon.
 
 Areas:
 
@@ -8,46 +8,55 @@ Camp
 exit={north=Area1}
 
 Area1
+Description:An peaceful area with meadow and some herbivore monster.There are herb that can be use.
 exit={south=Camp,east=Area2,north=Area6}
 Monster={Aptonoth=4}
 Items={GreenHerb=4}
 
 Area2 
+Description:An peaceful area with small forest, mushroom spot and some herbivore monster.
 exit={west=Area1,east=Area3}
 Monster={Conga=4}
 Items={GreenHerb=4,Mangadora=2}
 
-Area3  
+Area3
+Description:An area with forest and riverside.There are dangerous aquatic monster in this area.  
 exit={east=Area2,north=Area4}
 Monster={Lagiacrus=1,Maccao=2}
 Items={GreenHerb=4}
 
 Area4  
+Description:A meadow area with ancient ruins of the ancient civilization.There are a group of herbivore monsters and a bee hive.
 exit={south=Area3,west=Area5}
 Monster={Aptonoth=4}
 Items={Honey=2}
 
 Area5  
+Description:A cave area that is now become a nest of a wyvern monster.The area also contain mushroom spot.
 exit={east=Area4,west=Area6}
 Monster={Rathalos=1,Conga=2}
 Items={Mangadora=2}
 
 Area6  
+Description:A cave area that is a nest of smaller monsters.There are also bee hive in this area.
 exit={south=Area1,east=Area5,north=Area7}
 Monster={Maccao=4}
 Items={Honey=2}
 
 Area7 
+Description:Area on the foothill of the mountain.This area are quit dangerous because there are dangerous monster in this area.
 exit={south=Area6,east=Area8}
 Monster={GoreMagala=1,Remobra=2}
 Items={GreenHerb=4}
 
 Area8 
+Description:Area on the mountain side there are only wing monsters live in this area.There are bee hive in this area.
 exit={west=Area7,south=Area5,east=Area9}
 Monster={Remobra=4}
 Items={Honey=2}
 
 Area9 
+Description:Area on the peak of the pinnacle.This area is a home of the sky dragon.
 exit={west=Area8}
 Monster={Valstrax=1}
 Items={None=0}

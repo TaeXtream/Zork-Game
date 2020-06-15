@@ -9,6 +9,10 @@ public class LookCommand extends Command {
 
     @Override
     public void execute(String arg) {
+        lookaround();
+    }
 
+    void lookaround() {
+        System.out.println(game.getCurrentArea().getAreaInfo());
     }
 }

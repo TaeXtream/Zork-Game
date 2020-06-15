@@ -19,7 +19,15 @@ public class Player extends Entity {
     }
 
     public List<Item> getInventory() {
-        return inventory;
+        return this.inventory;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 
     public void printHealth() {

@@ -19,6 +19,7 @@ public class CommandFactory {
         commandMap.put("status", new StatusCommand(game));
         commandMap.put("look", new LookCommand(game));
         commandMap.put("help", new HelpCommand(game));
+        commandMap.put("study", new StudyCommand(game));
     }
 
     public Command getCommand(String cmd) {

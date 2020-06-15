@@ -82,11 +82,18 @@ public class Game {
 
     public void play() {
         gameMap.printIntro();
-        System.out.println();
         gameMap.printDescription();
-        System.out.println();
         System.out.println(this.currentArea.getAreaInfo());
         while (!finished) {
+            if (!player.isAlive()) {
+                printQuestFail();
+                finished = true;
+                continue;
+            } else if (player.getInventory().stream().anyMatch(o -> o.getClass().equals(VictoryItem.class))) {
+                printQuestClear();
+                finished = true;
+                continue;
+            }
             CommandLine commandLine = parser.getCommandLine();
             if (commandLine.isUnknown()) {
                 System.out.println("Unknown Command input!");
@@ -95,21 +102,14 @@ public class Game {
             if (commandLine.getCommandWord().equals("attack") && target == null) {
                 String targetname = commandLine.getSecondWord();
                 this.target = currentArea.getMonster(targetname);
-                Command command = commandFactory.getCommand(commandLine.getCommandWord());
-                command.execute(commandLine.getSecondWord());
                 if (this.target.getClass().getName().contains("Dragon")) {
+                    System.out.println("Begin battle with " + target.getName());
                     dragonCombat(this.player, (Dragon) this.target);
                 } else {
+                    System.out.println("Begin battle with " + target.getName());
                     monsterCombat(this.player, this.target);
                 }
                 currentArea.removeDeathMonster();
-            }
-            if (!player.isAlive()) {
-                printQuestFail();
-                finished = true;
-            } else if (player.getInventory().stream().anyMatch(o -> o.getClass().equals(VictoryItem.class))) {
-                printQuestClear();
-                finished = true;
             } else {
                 Command command = commandFactory.getCommand(commandLine.getCommandWord());
                 command.execute(commandLine.getSecondWord());
@@ -121,7 +121,7 @@ public class Game {
     }
 
     void monsterCombat(Player player, Monster monster) {
-        while (player.isAlive() || monster.isAlive()) {
+        while (player.isAlive() && monster.isAlive()) {
             CommandLine commandLine = parser.getCommandLine();
             if (commandLine.getCommandWord().equals("go")) {
                 System.out.println("Run Away from Monster.");
@@ -132,7 +132,9 @@ public class Game {
             }
             Command command = commandFactory.getCommand(commandLine.getCommandWord());
             command.execute(commandLine.getSecondWord());
+            System.out.println(target.getName() + " is attack you!");
             player.setHealth(player.getHealth() - monster.getAttack());
+            player.printHealth();
             if (player.getHealth() <= 0) {
                 player.dead();
             } else if (monster.getHealth() <= 0) {
@@ -148,6 +150,7 @@ public class Game {
             }
 
         }
+        this.target = null;
     }
 
     void dragonCombat(Player player, Dragon dragon) {
@@ -161,10 +164,14 @@ public class Game {
             Command command = commandFactory.getCommand(commandLine.getCommandWord());
             command.execute(commandLine.getSecondWord());
             if (random.nextInt(4) == 3) {
-                System.out.println("Dragon is using super attack!");
+                System.out.println(dragon.getName() + " is using super attack!");
                 player.setHealth(player.getHealth() - dragon.getSuperAttack());
+                player.printHealth();
+
             }
+            System.out.println(dragon.getName() + " is attack you!");
             player.setHealth(player.getHealth() - dragon.getAttack());
+            player.printHealth();
             if (player.getHealth() <= 0) {
                 player.dead();
             } else if (dragon.getHealth() <= 0) {
@@ -174,6 +181,7 @@ public class Game {
             }
 
         }
+        this.target = null;
     }
 
 

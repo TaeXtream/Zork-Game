@@ -12,11 +12,11 @@ public class AttackCommand extends Command {
         if (game.getTarget() == null) {
             return;
         }
-        System.out.println("Attack " + arg);
         attacking();
     }
 
     void attacking() {
+        System.out.println("Attack " + game.getTarget().getName());
         game.getTarget().setHealth(game.getTarget().getHealth() - game.getPlayer().getDamage());
     }
 }

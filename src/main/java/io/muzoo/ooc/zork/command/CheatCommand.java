@@ -14,6 +14,12 @@ public class CheatCommand extends Command {
         cheese(arg);
     }
 
+    @Override
+    void printDescription() {
+        System.out.println("NOOOO!");
+        System.out.println("Don't!!!!");
+    }
+
     void cheese(String arg) {
         switch (arg) {
             case "ultimate":

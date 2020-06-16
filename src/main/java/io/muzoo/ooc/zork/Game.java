@@ -3,8 +3,6 @@ package io.muzoo.ooc.zork;
 import io.muzoo.ooc.zork.character.Player;
 import io.muzoo.ooc.zork.command.CommandLine;
 import io.muzoo.ooc.zork.command.Parser;
-import io.muzoo.ooc.zork.gameitem.Healitem;
-import io.muzoo.ooc.zork.gameitem.HealthUpgradeItem;
 import io.muzoo.ooc.zork.gameitem.VictoryItem;
 import io.muzoo.ooc.zork.gameitem.Weapon;
 import io.muzoo.ooc.zork.gamemap.Area;
@@ -101,7 +99,7 @@ public class Game {
             }
             if (commandLine.getCommandWord().equals("attack") && target == null) {
                 String targetname = commandLine.getSecondWord();
-                this.target = currentArea.getMonster(targetname);
+                setTarget(currentArea.getMonster(targetname));
                 if (this.target.getClass().getName().contains("Dragon")) {
                     System.out.println("Begin battle with " + target.getName());
                     dragonCombat(this.player, (Dragon) this.target);
@@ -123,8 +121,12 @@ public class Game {
     void monsterCombat(Player player, Monster monster) {
         while (player.isAlive() && monster.isAlive()) {
             CommandLine commandLine = parser.getCommandLine();
+            if (commandLine.isUnknown()) {
+                System.out.println("Unknown Command input!");
+                continue;
+            }
             if (commandLine.getCommandWord().equals("go")) {
-                System.out.println("Run Away from Monster.");
+                System.out.println("You try to Run Away from Monster.");
                 Command command = commandFactory.getCommand(commandLine.getCommandWord());
                 command.execute(commandLine.getSecondWord());
                 this.target = null;
@@ -150,7 +152,7 @@ public class Game {
             }
 
         }
-        this.target = null;
+        setTarget(null);
     }
 
     void dragonCombat(Player player, Dragon dragon) {
@@ -181,15 +183,16 @@ public class Game {
             }
 
         }
-        this.target = null;
+        setTarget(null);
     }
 
 
     public void titleScreen() {
         System.out.println("===============================");
-        System.out.println("O                             O");
-        System.out.println("O     Monster Hunter Zork     O");
-        System.out.println("O                             O");
+        System.out.println("|                             |");
+        System.out.println("|       Monster Hunter        |");
+        System.out.println("|            Zork!            |");
+        System.out.println("|                             |");
         System.out.println("===============================");
     }
 

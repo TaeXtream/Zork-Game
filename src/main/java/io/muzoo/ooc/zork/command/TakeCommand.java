@@ -13,6 +13,12 @@ public class TakeCommand extends Command {
         pickItem(arg);
     }
 
+    @Override
+    void printDescription() {
+        System.out.println("Command to pickup item from a area.");
+        System.out.println("Format: take ..arg..");
+    }
+
     void pickItem(String item) {
         Item getItem = game.getCurrentArea().getItem(item);
 

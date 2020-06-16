@@ -15,6 +15,12 @@ public class GoCommand extends Command {
         goRoom(arg);
     }
 
+    @Override
+    void printDescription() {
+        System.out.println("Command that use to go around the game map.");
+        System.out.println("Format: go ..direction..");
+    }
+
     private void goRoom(String direction) {
         // Try to leave current room.
         Area nextArea = game.getCurrentArea().getExit(direction);

@@ -13,4 +13,10 @@ public class StatusCommand extends Command {
         game.getPlayer().printPlayerStatus();
     }
 
+    @Override
+    void printDescription() {
+        System.out.println("Display player status and inventory.");
+        System.out.println("Format: status");
+    }
+
 }

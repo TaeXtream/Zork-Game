@@ -16,7 +16,6 @@ public class GameMap {
     String description;
     List<Area> areas = new ArrayList<>();
     File base;
-    GameLibrary gameLibrary = new GameLibrary();
 
     public GameMap(String path) {
         File file = new File(path);
@@ -48,10 +47,6 @@ public class GameMap {
 
     String stringCutter(String s, String target) {
         return s.substring(s.indexOf(target) + 1);
-    }
-
-    void setDescription(String description) {
-        this.description = description;
     }
 
     public void printIntro() {
@@ -121,25 +116,12 @@ public class GameMap {
     void generateMonster(List<String[]> allMonster) {
         int i = 1;
         MonsterFactory monsterFactory = new MonsterFactory();
-        ItemFactory itemFactory = new ItemFactory();
         for (String[] monsters : allMonster) {
             for (String monster : monsters) {
                 String name = monster.substring(0, monster.indexOf("="));
                 int amount = Integer.parseInt(monster.replaceAll("[\\D]", ""));
                 for (int j = 0; j < amount; j++) {
-                    if (gameLibrary.getSmallMonstersBook().containsKey(name)) {
-                        String info = gameLibrary.getSmallMonstersBook().get(name).getKey();
-                        Item drop = itemFactory.createItem(gameLibrary.getSmallMonstersBook().get(name).getValue());
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.SmallMonster, name, info, drop));
-                    } else if (gameLibrary.getBigMonstersBook().containsKey(name)) {
-                        String info = gameLibrary.getBigMonstersBook().get(name).getKey();
-                        Item drop = itemFactory.createItem(gameLibrary.getBigMonstersBook().get(name).getValue());
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.BigMonster, name, info, drop));
-                    } else if (gameLibrary.getDragonBook().containsKey(name)) {
-                        String info = gameLibrary.getDragonBook().get(name).getKey();
-                        Item drop = itemFactory.createItem(gameLibrary.getDragonBook().get(name).getValue());
-                        areas.get(i).addMonster(monsterFactory.createMonster(MonsterType.Dragon, name, info, drop));
-                    }
+                    areas.get(i).addMonster(monsterFactory.createMonsterByName(name));
                 }
             }
             i++;

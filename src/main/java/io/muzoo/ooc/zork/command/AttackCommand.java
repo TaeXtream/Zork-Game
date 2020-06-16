@@ -15,6 +15,13 @@ public class AttackCommand extends Command {
         attacking();
     }
 
+    @Override
+    void printDescription() {
+        System.out.println("Coomand that use to combat with a monster.");
+        System.out.println("Format: attack ..arg.. to begin combat with target monster.");
+        System.out.println("        attack during a combat.");
+    }
+
     void attacking() {
         System.out.println("Attack " + game.getTarget().getName());
         game.getTarget().setHealth(game.getTarget().getHealth() - game.getPlayer().getDamage());

@@ -14,6 +14,12 @@ public class DropCommand extends Command {
         dropItem(argv);
     }
 
+    @Override
+    void printDescription() {
+        System.out.println("This command is use to drop item from your inventory.");
+        System.out.println("Format: drop ...arg...");
+    }
+
     private void dropItem(String argv) {
         if (argv.isEmpty()) {
             System.out.println("Drop what?");

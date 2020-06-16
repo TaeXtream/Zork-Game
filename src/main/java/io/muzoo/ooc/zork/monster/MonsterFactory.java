@@ -1,11 +1,13 @@
 package io.muzoo.ooc.zork.monster;
 
 import io.muzoo.ooc.zork.gameitem.Item;
+import io.muzoo.ooc.zork.gameitem.ItemFactory;
 import io.muzoo.ooc.zork.gamemap.GameLibrary;
 
 public class MonsterFactory {
 
     GameLibrary gameLibrary = new GameLibrary();
+    ItemFactory itemFactory = new ItemFactory();
 
     public Monster createMonster(MonsterType type) {
         switch (type) {
@@ -51,6 +53,23 @@ public class MonsterFactory {
                 return new BigMonster(name, info, drop);
             case Dragon:
                 return new Dragon(name, info, drop);
+        }
+        throw new IllegalArgumentException("Unknown Monster Type");
+    }
+
+    public Monster createMonsterByName(String name) {
+        if (gameLibrary.getSmallMonstersBook().containsKey(name)) {
+            String info = gameLibrary.getSmallMonstersBook().get(name).getKey();
+            Item drop = itemFactory.createItem(gameLibrary.getSmallMonstersBook().get(name).getValue());
+            return createMonster(MonsterType.SmallMonster, name, info, drop);
+        } else if (gameLibrary.getBigMonstersBook().containsKey(name)) {
+            String info = gameLibrary.getBigMonstersBook().get(name).getKey();
+            Item drop = itemFactory.createItem(gameLibrary.getBigMonstersBook().get(name).getValue());
+            return createMonster(MonsterType.BigMonster, name, info, drop);
+        } else if (gameLibrary.getDragonBook().containsKey(name)) {
+            String info = gameLibrary.getDragonBook().get(name).getKey();
+            Item drop = itemFactory.createItem(gameLibrary.getDragonBook().get(name).getValue());
+            return createMonster(MonsterType.Dragon, name, info, drop);
         }
         throw new IllegalArgumentException("Unknown Monster Type");
     }

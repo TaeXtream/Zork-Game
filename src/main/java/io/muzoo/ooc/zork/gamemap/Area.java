@@ -66,7 +66,7 @@ public class Area {
     }
 
     public String getDescription() {
-        return description.replaceAll("\\.", ".\n");
+        return description;
     }
 
     public Item getItem(int index){

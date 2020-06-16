@@ -13,6 +13,12 @@ public class UseCommand extends Command {
         useItem(arg);
     }
 
+    @Override
+    void printDescription() {
+        System.out.println("Command to use an item from your inventory.");
+        System.out.println("Format: use ..arg..");
+    }
+
     void useItem(String item) {
         if (!game.getGameLibrary().getHealItemBook().containsKey(item)) {
             System.out.println("This Item is not exist.");
@@ -30,4 +36,5 @@ public class UseCommand extends Command {
         }
         System.out.println("You don't have this item.");
     }
+
 }

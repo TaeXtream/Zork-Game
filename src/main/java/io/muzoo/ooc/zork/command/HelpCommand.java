@@ -2,7 +2,8 @@ package io.muzoo.ooc.zork.command;
 
 import io.muzoo.ooc.zork.Game;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HelpCommand extends Command {
     public HelpCommand(Game game) {
@@ -11,7 +12,17 @@ public class HelpCommand extends Command {
 
     @Override
     public void execute(String arg) {
-        printHelp();
+        if (arg == null) {
+            printHelp();
+            return;
+        }
+        printHelpCommand(arg);
+    }
+
+    @Override
+    void printDescription() {
+        System.out.println("You can also use help ..arg..");
+        System.out.println("To get a detail of how to use that command.");
     }
 
     void printHelp() {
@@ -21,12 +32,22 @@ public class HelpCommand extends Command {
         System.out.println();
         System.out.println("This is the list of command that you can use.");
         System.out.println(getCommandList().toString());
+        printDescription();
     }
 
-    Set<String> getCommandList() {
-        Set<String> stringSet = game.getCommandFactory().getCommandMap().keySet();
-        stringSet.remove("cheat");
-        return stringSet;
+    List<String> getCommandList() {
+        List<String> commandList = new ArrayList<>();
+        for (String string : game.getCommandFactory().getCommandMap().keySet()) {
+            if (!string.equals("cheat")) {
+                commandList.add(string);
+            }
+
+        }
+        return commandList;
+    }
+
+    void printHelpCommand(String arg) {
+        game.getCommandFactory().getCommand(arg).printDescription();
     }
 
 

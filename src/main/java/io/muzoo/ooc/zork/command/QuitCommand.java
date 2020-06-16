@@ -13,4 +13,9 @@ public class QuitCommand extends Command {
         game.finished();
 
     }
+
+    @Override
+    void printDescription() {
+        System.out.println("Use when you want to quit the game.");
+    }
 }

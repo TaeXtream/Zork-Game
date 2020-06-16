@@ -13,7 +13,17 @@ public class StudyCommand extends Command {
 
     @Override
     public void execute(String arg) {
+        if (arg == null) {
+            System.out.println("Study What!");
+            return;
+        }
         study(arg);
+    }
+
+    @Override
+    void printDescription() {
+        System.out.println("This command is use to study a detain of a monster.");
+        System.out.println("Format: study ..arg..");
     }
 
     void study(String arg) {
@@ -38,4 +48,6 @@ public class StudyCommand extends Command {
         System.out.println(data);
         System.out.println("This monster drop " + drop + ".");
     }
+
+
 }

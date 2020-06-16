@@ -12,6 +12,12 @@ public class LookCommand extends Command {
         lookaround();
     }
 
+    @Override
+    void printDescription() {
+        System.out.println("Command to look around the area.");
+        System.out.println("Format: look");
+    }
+
     void lookaround() {
         System.out.println(game.getCurrentArea().getDescription());
         System.out.println(game.getCurrentArea().getAreaInfo());

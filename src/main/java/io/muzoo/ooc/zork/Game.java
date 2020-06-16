@@ -1,6 +1,8 @@
 package io.muzoo.ooc.zork;
 
 import io.muzoo.ooc.zork.character.Player;
+import io.muzoo.ooc.zork.command.Command;
+import io.muzoo.ooc.zork.command.CommandFactory;
 import io.muzoo.ooc.zork.command.CommandLine;
 import io.muzoo.ooc.zork.command.Parser;
 import io.muzoo.ooc.zork.gameitem.VictoryItem;
@@ -8,8 +10,6 @@ import io.muzoo.ooc.zork.gameitem.Weapon;
 import io.muzoo.ooc.zork.gamemap.Area;
 import io.muzoo.ooc.zork.gamemap.GameLibrary;
 import io.muzoo.ooc.zork.gamemap.GameMap;
-import io.muzoo.ooc.zork.command.Command;
-import io.muzoo.ooc.zork.command.CommandFactory;
 import io.muzoo.ooc.zork.monster.Dragon;
 import io.muzoo.ooc.zork.monster.Monster;
 import javafx.util.Pair;
@@ -32,6 +32,7 @@ public class Game {
     {
         mapFiles.put("Ruined Pinnacle", new Pair<>("GameMapdata\\RuinPinnacleData.txt", "GameMapdata\\RuinPinnaclePMap.txt"));
         mapFiles.put("Frozen Seaway", new Pair<>("GameMapdata\\FrozenSeawayData.txt", "GameMapdata\\FrozenSeawayPMap.txt"));
+        mapFiles.put("Volcanic Hollow", new Pair<>("GameMapdata\\VolcanicHollowData.txt", "GameMapdata\\VolcanicHollowPMap.txt"));
     }
 
     Game() {

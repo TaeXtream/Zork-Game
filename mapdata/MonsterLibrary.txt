@@ -25,16 +25,16 @@ Description:A species of small bird-like carnivores known to inhabit the Arctic.
 Drop=MonsterHide
 Name:Kelbi
 Description:Small deer-like herbivores known for their gentle demeanor as well as medicinal properties of their horns.
-Drop=SmallHorn
+Drop=KelbiHorn
 Name:Rhenoplos
 Description:Extremely territorial herbivores with poor vision but acute hearing, Rhenoplos will doggedly pursue any target they sense.They often run into boulders, perhaps because they cannot easily stop once they break into a run.
 Drop=SmallPlate
 Name:Uroktor
 Description:Leviathans that inhabit volcanoes.Noted for swarming around larger monsters' kills in order to feed.Uroktor rarely hunt for themselves, but stab upward at prey from the ground when they do.Known for being highly aggressive.
-Drop:SmallHide
+Drop=SmallHide
 Name:Slagtoth
 Description:Herbivores that live near water in the Volcano.Their heavy, sagging hides store nutrients and are prized for their heat and water resistance.The males are quite territorial, often refusing to flee from even invading wyverns.
-Drop:MonsterMeat
+Drop=MonsterMeat
 
 BigMonster:9
 Name:Lagiacrus
@@ -63,7 +63,7 @@ Description:Brute wyverns coated with an explosive green substance, a material t
 Drop=ExplosiveSilme
 Name:Agnaktor
 Description:Also known as fire-pike wyverns, Agnaktor use their tough beaks and great strength to burrow effortlessy through rock, and can even burrow into ceilings.Their hardened-lava armor becomes even harder when cooled forming an almost impenetrable armor.
-Drop:HardMonsterHide
+Drop=HardMonsterHide
 
 Dragon:3
 Name:Valstrax

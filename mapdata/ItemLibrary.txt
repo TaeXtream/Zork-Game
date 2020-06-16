@@ -1,4 +1,4 @@
-Heal:4
+Heal:5
 GreenHerb
 heal:10
 Honey
@@ -7,7 +7,7 @@ Mangadora
 heal:max
 MonsterMeat
 heal:50
-SmallHorn
+KelbiHorn
 heal:max
 
 SmallHealth:4

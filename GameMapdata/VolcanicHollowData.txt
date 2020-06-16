@@ -1,0 +1,62 @@
+name:Volcanic Hollow
+intro:You and miners caravan arrived at a Volcanic Hollow.One of the most dangerous with active volcano and many monster.You mission is to slay fire dragon to clear way for miners so they can go mine for resources.
+discription:A place consists of an active volcano and the surrounding area is the Sunken Hollow after the dormant volcano becomes active and erupts.The main feature that sets this Volcano apart from the others is that most of the area is primarily underground.
+
+Areas:
+
+Camp
+exit={south=Area1}
+
+Area1
+Description:A peaceful area full of green and herbivore.Many plant grow here because of mineral from the volcano.
+exit={north=Camp,west=Area7,south=Area2}
+Monster={Slagtoth=4}
+Items={GreenHerb=4}
+
+Area2
+Description:A hotter region full of rock and no green around the area.
+exit={north=Area1,south=Area3}
+Monster={Rhenoplos=4}
+Items={Honey=2}
+
+Area3
+Description:A volcanic area with lava.No plant grow here.And only lava monsters can leave here.
+exit={east=Area8}
+Monster={Uroktor=4}
+Items={None=0}
+
+Area4
+Description:A peaceful hot area with many small herbivore monster.
+exit={west=Area2,south=Area8,east=Area5}
+Monster={Kelbi=4}
+Items={Honey=2}
+
+Area5
+Description:A hot rocky area with unique predator monster inhabit the area.There still a little bit of plant growing in this area.
+exit={east=Area4,north=Area6}
+Monster={Glavenus=1,Kelbi=2}
+Items={GreenHerb=4}
+
+Area6
+Description:A hot region that have a source special rare slime that attract monster that have unique relationship with it.
+exit={east=Area7,south=Area5}
+Monster={Brachydios=1,Rhenoplos=2}
+Items={Honey=2}
+
+Area7
+Description:A highland area full of green and peaceful herbivore monster.
+exit={west=Area1,south=Area4,east=Area6}
+Monster={Slagtoth=4}
+Items={GreenHerb=4}
+
+Area8
+Description:A large volcanic area full of lava lake.The monster that known to swim in lava inhabit this area.
+exit={west=Area3,north=Area4,east=Area9}
+Monster={Agnaktor=1,Uroktor=2}
+Items={None=0}
+
+Area9
+Description:A volcanic area located near the crater.This area is the habitat of the volcanic dragon.
+exit={west=Area8}
+Monster={Teostra=1}
+Items={None=0}

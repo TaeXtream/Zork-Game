@@ -30,8 +30,8 @@ public class Game {
     Map<String, Pair<String, String>> mapFiles = new HashMap<>();
 
     {
-        mapFiles.put("Ruined Pinnacle", new Pair<>("GameMapdata\\RuinPinnacleData.txt", "o"));
-        mapFiles.put("Frozen Seaway", new Pair<>("GameMapdata\\FrozenSeawayData.txt", "o"));
+        mapFiles.put("Ruined Pinnacle", new Pair<>("GameMapdata\\RuinPinnacleData.txt", "GameMapdata\\RuinPinnaclePMap.txt"));
+        mapFiles.put("Frozen Seaway", new Pair<>("GameMapdata\\FrozenSeawayData.txt", "GameMapdata\\FrozenSeawayPMap.txt"));
     }
 
     Game() {
@@ -53,6 +53,7 @@ public class Game {
     void initialize(String mapPath) {
         player = new Player(new Weapon(10));
         gameMap = new GameMap(mapPath);
+        gameMap.setMapFile(mapFiles.get(gameMap.getName()).getValue());
         currentArea = gameMap.getArea("Camp");
         commandFactory = new CommandFactory(this);
         parser = new Parser(this.commandFactory);

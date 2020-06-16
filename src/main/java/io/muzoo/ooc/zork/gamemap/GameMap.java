@@ -14,6 +14,7 @@ public class GameMap {
     String description;
     List<Area> areas = new ArrayList<>();
     File base;
+    File map2D;
 
     public GameMap(String path) {
         File file = new File(path);
@@ -155,8 +156,15 @@ public class GameMap {
     }
 
     public void printMap() {
-        System.out.println("Aress in this map: ");
+        System.out.println("Areas in this map: ");
         printAreas();
+        try {
+            Scanner scanner = new Scanner(map2D);
+            while (scanner.hasNextLine())
+                System.out.println(scanner.nextLine());
+        } catch (FileNotFoundException f) {
+            f.printStackTrace();
+        }
 
 
     }
@@ -182,5 +190,11 @@ public class GameMap {
         return null;
     }
 
+    public void setMapFile(String map) {
+        this.map2D = new File(map);
+    }
 
+    public void setMapFile(File map) {
+        this.map2D = map;
+    }
 }

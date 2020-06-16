@@ -28,6 +28,7 @@ public class GoCommand extends Command {
             System.out.println("There is no exit!");
         } else {
             game.setCurrentArea(nextArea);
+            System.out.println(nextArea.getDescription());
             System.out.println(nextArea.getAreaInfo());
         }
     }

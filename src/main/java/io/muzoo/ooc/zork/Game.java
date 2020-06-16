@@ -149,10 +149,11 @@ public class Game {
                 System.out.println(monster.getName() + " has been kill!");
                 monster.dead();
                 if (!monster.getDrop().getClass().getName().contains("Healitem")) {
-                    System.out.println("You obtain " + monster.getDrop().getName() + "from killing " + monster.getName());
+                    System.out.println("You obtain " + monster.getDrop().getName() + " from killing " + monster.getName());
                     monster.getDrop().printEffect();
                     monster.getDrop().itemEffect(this.player);
                 } else {
+                    System.out.println("You obtain " + monster.getDrop().getName() + " from killing " + monster.getName());
                     player.getInventory().add(monster.getDrop());
                 }
             }
@@ -185,6 +186,7 @@ public class Game {
             } else if (dragon.getHealth() <= 0) {
                 System.out.println(dragon.getName() + " has been slay!");
                 dragon.dead();
+                System.out.println("You obtain " + dragon.getDrop().getName() + " from slaying " + dragon.getName());
                 player.getInventory().add(dragon.getDrop());
             }
 

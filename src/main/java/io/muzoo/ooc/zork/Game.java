@@ -12,6 +12,7 @@ import io.muzoo.ooc.zork.command.Command;
 import io.muzoo.ooc.zork.command.CommandFactory;
 import io.muzoo.ooc.zork.monster.Dragon;
 import io.muzoo.ooc.zork.monster.Monster;
+import javafx.util.Pair;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -26,9 +27,11 @@ public class Game {
     Parser parser;
     boolean finished = false;
     GameLibrary gameLibrary = new GameLibrary();
-    List<String> mapFiles = new ArrayList<>();
+    Map<String, Pair<String, String>> mapFiles = new HashMap<>();
+
     {
-        mapFiles.add("GameMapdata\\RuinPinnacleData.txt");
+        mapFiles.put("Ruined Pinnacle", new Pair<>("GameMapdata\\RuinPinnacleData.txt", "o"));
+        mapFiles.put("Frozen Seaway", new Pair<>("GameMapdata\\FrozenSeawayData.txt", "o"));
     }
 
     Game() {
@@ -57,13 +60,15 @@ public class Game {
     }
 
     String inputMap() {
+        System.out.println("This is a available map.");
+        System.out.println(mapFiles.keySet().toString());
         System.out.println("Please Input your Map.");
         System.out.print("> ");
         Scanner scanner = new Scanner(System.in);
-        String map = scanner.nextLine();
-        for (String mappath : mapFiles) {
-            if (mappath.contains(map))
-                return mappath;
+        String mapname = scanner.nextLine();
+        for (String map : mapFiles.keySet()) {
+            if (map.contains(mapname))
+                return mapFiles.get(map).getKey();
         }
         throw new InputMismatchException();
     }

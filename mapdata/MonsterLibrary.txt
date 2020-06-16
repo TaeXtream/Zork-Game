@@ -1,77 +1,77 @@
 SmallMonster:12
 Name:Aptonoth
-Description:Aptonoth are cow-like creatures with leathery gray skin. Docile herbivores that graze in packs. Their meat is considered a delicacy and is rich in nutrients. If one member of the herd is attacked, the rest will flee immediately.
+Description:Aptonoth are cow-like creatures with leathery gray skin. Docile herbivores that graze in packs.Their meat is considered a delicacy and is rich in nutrients.If one member of the herd is attacked, the rest will flee immediately.
 Drop=MonsterMeat
 Name:Remobra
-Description:Small but agile flying wyverns that seek out weakened creatures to attack. Often seen near elder dragons, they're considered a portent of disaster.
+Description:Small but agile flying wyverns that seek out weakened creatures to attack.Often seen near elder dragons, they're considered a portent of disaster.
 Drop=SmallHide
 Name:Maccao
-Description:Colorful red and green bird wyverns that live in large packs, they can be found mostly in the Jurassic Frontier. Though they attack prey aggressively with their strong legs, they are known to flee once their leader is in danger.
+Description:Colorful red and green bird wyverns that live in large packs, they can be found mostly in the Jurassic Frontier.Though they attack prey aggressively with their strong legs, they are known to flee once their leader is in danger.
 Drop=SmallClaw
 Name:Conga
-Description:Ape-like Primatius with pink fur. Prefers to live in small groups as opposed to large packs, and particularly enjoys mushroom snacks. If stumbled upon, it will be hostile, so beware of areas like the swamp or jungle.
+Description:Ape-like Primatius with pink fur.Prefers to live in small groups as opposed to large packs, and particularly enjoys mushroom snacks.If stumbled upon, it will be hostile, so beware of areas like the swamp or jungle.
 Drop=SmallPelt
 Name:Popo
-Description:Herd-forming herbivores covered in thick fur to endure the cold. Popo are gentle, but known to use their massive tusks bravely when defending their young. Popo meat is very nutritious; the tongue is said to be especially palatable.
+Description:Herd-forming herbivores covered in thick fur to endure the cold.Popo are gentle, but known to use their massive tusks bravely when defending their young.Popo meat is very nutritious; the tongue is said to be especially palatable.
 Drop=MonsterMeat
 Name:Anteka
-Description:Herbivores that live in cold climates. Generally docile, though they have been known to attack when threatened. Their high-quality pelts have many uses, and their antlers are highly prized by the Guild. Simply stun the creatures to easily harvest one.
+Description:Herbivores that live in cold climates.Generally docile, though they have been known to attack when threatened.Their high-quality pelts have many uses, and their antlers are highly prized by the Guild.Simply stun the creatures to easily harvest one.
 Drop=MonsterAntler
 Name:Zamite
-Description:It is a small, shark-like creature whose relatively large mouth houses many rows of teeth made for attacking prey. Zamite have been sighted in a number of different stages of development, with some having fully developed legs, while others slide on their bellies.
+Description:It is a small, shark-like creature whose relatively large mouth houses many rows of teeth made for attacking prey.Zamite have been sighted in a number of different stages of development, with some having fully developed legs, while others slide on their bellies.
 Drop=SmallTeeth
 Name:Giaprey
-Description:A species of small bird-like carnivores known to inhabit the Arctic. Their white skin is beautiful, but their temperament is not. They are known to spit ice at hunters, and attack in deadly packs.
+Description:A species of small bird-like carnivores known to inhabit the Arctic.Their white skin is beautiful, but their temperament is not.They are known to spit ice at hunters, and attack in deadly packs.
 Drop=MonsterHide
 Name:Kelbi
 Description:Small deer-like herbivores known for their gentle demeanor as well as medicinal properties of their horns.
 Drop=SmallHorn
 Name:Rhenoplos
-Description:Extremely territorial herbivores with poor vision but acute hearing, Rhenoplos will doggedly pursue any target they sense. They often run into boulders, perhaps because they cannot easily stop once they break into a run.
+Description:Extremely territorial herbivores with poor vision but acute hearing, Rhenoplos will doggedly pursue any target they sense.They often run into boulders, perhaps because they cannot easily stop once they break into a run.
 Drop=SmallPlate
 Name:Uroktor
-Description:Leviathans that inhabit volcanoes. Noted for swarming around larger monsters' kills in order to feed. Uroktor rarely hunt for themselves, but stab upward at prey from the ground when they do. Known for being highly aggressive.
+Description:Leviathans that inhabit volcanoes.Noted for swarming around larger monsters' kills in order to feed.Uroktor rarely hunt for themselves, but stab upward at prey from the ground when they do.Known for being highly aggressive.
 Drop:SmallHide
 Name:Slagtoth
-Description:Herbivores that live near water in the Volcano. Their heavy, sagging hides store nutrients and are prized for their heat and water resistance. The males are quite territorial, often refusing to flee from even invading wyverns.
+Description:Herbivores that live near water in the Volcano.Their heavy, sagging hides store nutrients and are prized for their heat and water resistance.The males are quite territorial, often refusing to flee from even invading wyverns.
 Drop:MonsterMeat
 
 BigMonster:9
 Name:Lagiacrus
-Description:Leviathans that exist at the top of the aquatic food chain. Feared by sailors as the "Lords of the Seas", Lagiacrus store enough electricity in their spinal organs to make the oceans surge. Occasionally they can be found resting on land as well.
+Description:Leviathans that exist at the top of the aquatic food chain.Feared by sailors as the "Lords of the Seas", Lagiacrus store enough electricity in their spinal organs to make the oceans surge.Occasionally they can be found resting on land as well.
 Drop=ElectricFang
 Name:Rathalos
-Description:Terrible wyverns called "Kings of the Skies". It stake wide territories centered around its nests. Rathalos descend on invaders from the sky, attacking with poison claws and breath of fire.
+Description:Terrible wyverns called "Kings of the Skies".It stake wide territories centered around its nests.Rathalos descend on invaders from the sky, attacking with poison claws and breath of fire.
 Drop=WyvernHide
 Name:GoreMagala
-Description:A bizarre wyvern that, when threatened, scatters pollen-like scales that heighten its own senses while causing detrimental effects to any other creatures that inhale them. As elusive as it is mysterious.
+Description:A bizarre wyvern that, when threatened, scatters pollen-like scales that heighten its own senses while causing detrimental effects to any other creatures that inhale them.As elusive as it is mysterious.
 Drop=DarkClaw
 Name:Zamtrios
-Description:Amphibians that strike from frozen waters, using the cold to stun their prey. They secrete a special liquid that both coats their own body with icy armor and freezes any nearby foes. Frogs are their favorite food.
+Description:Amphibians that strike from frozen waters, using the cold to stun their prey.They secrete a special liquid that both coats their own body with icy armor and freezes any nearby foes.Frogs are their favorite food.
 Drop=FrozenTeeth
 Name:Gammoth
-Description:Found in the most frigid regions of the world, Gammoths are behemoths with massive tusks. Though they are herbivores, when provoked they will leverage their enormous weight and trunks to crush a threat. They can also shatter the snow covering their legs to damage nearby foes.
+Description:Found in the most frigid regions of the world, Gammoths are behemoths with massive tusks.Though they are herbivores, when provoked they will leverage their enormous weight and trunks to crush a threat.They can also shatter the snow covering their legs to damage nearby foes.
 Drop=LargeMonsterPelt
 Name:Rajang
-Description:An ultra-aggressive beast that is rarely sighted and seldom survived. Survivors report it exhibits a strange attack. The Rajang is said to be a loner, and this isolated life has made it difficult to pin down its territorial leanings.
+Description:An ultra-aggressive beast that is rarely sighted and seldom survived.Survivors report it exhibits a strange attack.The Rajang is said to be a loner, and this isolated life has made it difficult to pin down its territorial leanings.
 Drop=GoldenHorn
 Name:Glavenus
-Description:A brute wyvern that can bring its mighty tail down on foes like a massive sword, decimating them in an explosion of flames created from the volatile components found in its scales. If its tail dulls from accumulated soot, a Glavenus will use its fangs to resharpen it.
+Description:A brute wyvern that can bring its mighty tail down on foes like a massive sword, decimating them in an explosion of flames created from the volatile components found in its scales.If its tail dulls from accumulated soot, a Glavenus will use its fangs to resharpen it.
 Drop=BladeTail
 Name:Brachydios
-Description:Brute wyverns coated with an explosive green substance, a material that is thought to be a unique slime mold that is primed to explode by an element in the monster's saliva. They are also capable of powerful foreleg strikes.
+Description:Brute wyverns coated with an explosive green substance, a material that is thought to be a unique slime mold that is primed to explode by an element in the monster's saliva.They are also capable of powerful foreleg strikes.
 Drop=ExplosiveSilme
 Name:Agnaktor
-Description:Also known as fire-pike wyverns, Agnaktor use their tough beaks and great strength to burrow effortlessy through rock, and can even burrow into ceilings. Their hardened-lava armor becomes even harder when cooled forming an almost impenetrable armor.
+Description:Also known as fire-pike wyverns, Agnaktor use their tough beaks and great strength to burrow effortlessy through rock, and can even burrow into ceilings.Their hardened-lava armor becomes even harder when cooled forming an almost impenetrable armor.
 Drop:HardMonsterHide
 
 Dragon:3
 Name:Valstrax
-Description:An Elder Dragon that soars at very high altitudes far from human habitation. Its flaming red wings are often the only visible sign of it, giving rise to its nickname, the Argent Comet.
+Description:An Elder Dragon that soars at very high altitudes far from human habitation.Its flaming red wings are often the only visible sign of it, giving rise to its nickname, the Argent Comet.
 Drop=DragonHeart
 Name:Namielle
-Description:An Elder Dragon said to be able to command water and use it as a shield. Though very few sightings have ever been reported, they mention 'exploding water' and 'bright glowing lights'. Its existence remains shrouded in mystery.
+Description:An Elder Dragon said to be able to command water and use it as a shield.Though very few sightings have ever been reported, they mention 'exploding water' and 'bright glowing lights'.Its existence remains shrouded in mystery.
 Drop=DragonTentacle
 Name:Teostra
-Description:A brutal Elder Dragon with breath of flame and expert control over fire. Teostra are of such a fierce and deadly nature that the Guild keeps track of their movements whenever possible.
+Description:A brutal Elder Dragon with breath of flame and expert control over fire.Teostra are of such a fierce and deadly nature that the Guild keeps track of their movements whenever possible.
 Drop=DragonHorn

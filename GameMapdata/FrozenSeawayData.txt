@@ -8,55 +8,55 @@ Camp
 exit={north=Area1}
 
 Area1
-Description:
+Description:A peaceful polar field area with a group of herbivore monsters.There is herb patch in this area.
 exit={south=Camp,west=Area9,east=Area2}
 Monster={Popo=4,Giaprey=2}
 Items={GreenHerb=4}
 
 Area2
-Description:
+Description:A frozen seashore area with semi-aquatic predator monster.There is some mushroom patch in this area.
 exit={west=Area1,north=Area3}
-Monster={Zamite=4}
+Monster={Zamtrios=1,Zamite=2}
 Items={Mangadora=2}
 
 Area3
-Description:
+Description:A frozen seashore area with small semi-aquatic monster.There is herb patch in this area.
 exit={south=Area2,west=Area4,north=Area5}
-Monster={Zamtrios=1,Zamite=2}
+Monster={Zamite=4}
 Items={GreenHerb=4}
 
 Area4
-Description:
-exit={east=Area3,west=Area8)
+Description:A peaceful polar field area with herbivore monsters.There are bee hive that contain some honey.
+exit={east=Area3,west=Area8}
 Monster={Anteka=4}
 Items={Honey=4}
 
 Area5
-Description:
+Description:A frozen seashore area with mysterious cave.There is dangerious beast living in this area.
 exit={south=Area3,west=Area6}
-Monster={Rajang=1, Giaprey=2}
+Monster={Rajang=1,Giaprey=2}
 Items={Honey=4}
 
 Area6
-Description:
+Description:A frozen cave area with many raptor monster.There is herb patch in this area.
 exit={east=Area5,west=Area7}
 Monster={Giaprey=4}
 Items={GreenHerb=4}
 
 Area7
-Description:
+Description:A deep frozen cave area that are now home of aquatic dragon.
 exit={east=Area7}
 Monster={Namielle=1}
 Items={None=0}
 
 Area8
-Description:
+Description:A polar hill area with one of the largest herbivore monster around.There is some mushroom patch in this area.
 exit={east=Area4,south=Area9}
 Monster={Gammoth=1,Popo=2}
 Items={Mangadora=2}
 
 Area9
-Description:
+Description:A peaceful polar hill area with some herb and group of herbivore monsters.
 exit={north=Area8,east=Area1}
 Monster={Popo=4}
 Items={GreenHerb=4}

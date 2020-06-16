@@ -1,10 +1,8 @@
 package io.muzoo.ooc.zork.gamemap;
 
-import io.muzoo.ooc.zork.gameitem.Item;
 import io.muzoo.ooc.zork.gameitem.ItemFactory;
-import io.muzoo.ooc.zork.gameitem.ItemType;
 import io.muzoo.ooc.zork.monster.MonsterFactory;
-import io.muzoo.ooc.zork.monster.MonsterType;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -156,7 +154,10 @@ public class GameMap {
 
     }
 
-    public void printMap(){
+    public void printMap() {
+        System.out.println("Aress in this map: ");
+        printAreas();
+
 
     }
 

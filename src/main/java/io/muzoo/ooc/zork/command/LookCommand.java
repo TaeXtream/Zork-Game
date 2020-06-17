@@ -21,5 +21,6 @@ public class LookCommand extends Command {
     void lookaround() {
         System.out.println(game.getCurrentArea().getDescription());
         System.out.println(game.getCurrentArea().getAreaInfo());
+        System.out.println();
     }
 }

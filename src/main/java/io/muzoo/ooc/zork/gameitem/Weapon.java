@@ -1,6 +1,8 @@
 package io.muzoo.ooc.zork.gameitem;
 
-public class Weapon {
+import java.io.Serializable;
+
+public class Weapon implements Serializable {
 
     int damage;
 

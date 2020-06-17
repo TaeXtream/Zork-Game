@@ -5,36 +5,36 @@ import io.muzoo.ooc.zork.gameitem.Item;
 public class BigMonster extends Monster {
 
     public BigMonster() {
-        this.setHealthMax(50);
+        this.setHealthMax(100);
         this.setHostile(true);
-        this.setAttack(15);
-        this.setHealth(50);
+        this.setAttack(20);
+        this.setHealth(100);
     }
 
-    public BigMonster(String name){
-        this.setHealthMax(50);
+    public BigMonster(String name) {
+        this.setHealthMax(100);
         this.setHostile(true);
         this.setName(name);
-        this.setAttack(15);
-        this.setHealth(50);
+        this.setAttack(20);
+        this.setHealth(100);
     }
 
     public BigMonster(String name, String info) {
-        this.setHealthMax(50);
+        this.setHealthMax(100);
         this.setHostile(true);
         this.setName(name);
         this.setInfo(info);
-        this.setAttack(15);
-        this.setHealth(50);
+        this.setAttack(20);
+        this.setHealth(100);
     }
 
     public BigMonster(String name, String info, Item drop) {
-        this.setHealthMax(50);
+        this.setHealthMax(100);
         this.setHostile(true);
         this.setName(name);
         this.setInfo(info);
-        this.setAttack(15);
-        this.setHealth(50);
+        this.setAttack(20);
+        this.setHealth(100);
         this.drop = drop;
     }
 }

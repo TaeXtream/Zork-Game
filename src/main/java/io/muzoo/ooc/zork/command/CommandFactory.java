@@ -2,7 +2,8 @@ package io.muzoo.ooc.zork.command;
 
 import io.muzoo.ooc.zork.Game;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CommandFactory {
     Game game;
@@ -22,6 +23,7 @@ public class CommandFactory {
         commandMap.put("study", new StudyCommand(game));
         commandMap.put("cheat", new CheatCommand(game));
         commandMap.put("map", new mapCommand(game));
+        commandMap.put("auto", new AutoCommand(game));
     }
 
     public Command getCommand(String cmd) {

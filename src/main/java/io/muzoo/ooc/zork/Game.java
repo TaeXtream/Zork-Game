@@ -14,20 +14,21 @@ import io.muzoo.ooc.zork.monster.Dragon;
 import io.muzoo.ooc.zork.monster.Monster;
 import javafx.util.Pair;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
-public class Game {
+public class Game implements Serializable {
     GameMap gameMap;
     Player player;
     Monster target;
     Area currentArea;
-    CommandFactory commandFactory;
-    Parser parser;
-    boolean finished = false;
-    GameLibrary gameLibrary = new GameLibrary();
-    Map<String, Pair<String, String>> mapFiles = new HashMap<>();
+    private final GameLibrary gameLibrary = new GameLibrary();
+    private final Map<String, Pair<String, String>> mapFiles = new HashMap<>();
+    private CommandFactory commandFactory;
+    private Parser parser;
+    private boolean finished = false;
 
     {
         mapFiles.put("Ruined Pinnacle", new Pair<>("GameMapdata\\RuinPinnacleData.txt", "GameMapdata\\RuinPinnaclePMap.txt"));
@@ -46,9 +47,10 @@ public class Game {
         }
     }
 
-    Game(String path) {
+
+    Game(String name) {
         start();
-        initialize(path);
+        initialize(mapFiles.get(name).getKey());
     }
 
     void initialize(String mapPath) {
@@ -144,14 +146,17 @@ public class Game {
             System.out.println(target.getName() + " is attack you!");
             player.setHealth(player.getHealth() - monster.getAttack());
             player.printHealth();
+            System.out.println();
             if (player.getHealth() <= 0) {
                 player.dead();
             } else if (monster.getHealth() <= 0) {
                 System.out.println(monster.getName() + " has been kill!");
+                System.out.println();
                 monster.dead();
                 if (!monster.getDrop().getClass().getName().contains("Healitem")) {
                     System.out.println("You obtain " + monster.getDrop().getName() + " from killing " + monster.getName());
                     monster.getDrop().printEffect();
+                    System.out.println();
                     monster.getDrop().itemEffect(this.player);
                 } else {
                     System.out.println("You obtain " + monster.getDrop().getName() + " from killing " + monster.getName());
@@ -177,11 +182,13 @@ public class Game {
                 System.out.println(dragon.getName() + " is using super attack!");
                 player.setHealth(player.getHealth() - dragon.getSuperAttack());
                 player.printHealth();
+                System.out.println();
 
             }
             System.out.println(dragon.getName() + " is attack you!");
             player.setHealth(player.getHealth() - dragon.getAttack());
             player.printHealth();
+            System.out.println();
             if (player.getHealth() <= 0) {
                 player.dead();
             } else if (dragon.getHealth() <= 0) {
@@ -189,6 +196,7 @@ public class Game {
                 dragon.dead();
                 System.out.println("You obtain " + dragon.getDrop().getName() + " from slaying " + dragon.getName());
                 player.getInventory().add(dragon.getDrop());
+                System.out.println();
             }
 
         }
@@ -249,6 +257,14 @@ public class Game {
 
     public GameLibrary getGameLibrary() {
         return gameLibrary;
+    }
+
+    public Parser getParser() {
+        return parser;
+    }
+
+    public void setParser(Parser parser) {
+        this.parser = parser;
     }
 
     void printQuestClear() {

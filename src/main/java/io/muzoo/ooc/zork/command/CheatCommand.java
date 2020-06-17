@@ -33,6 +33,11 @@ public class CheatCommand extends Command {
             case "kill":
                 game.getTarget().dead();
                 break;
+            case "weak":
+                game.getPlayer().getWeapon().setDamage(1);
+                game.getPlayer().setHealthMax(10);
+                game.getPlayer().setHealth(10);
+                break;
             default:
                 System.out.println("Cheese don't exist!");
                 break;

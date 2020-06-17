@@ -1,23 +1,23 @@
 package io.muzoo.ooc.zork.command;
 
-
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Parser {
-    protected CommandFactory commands;  // holds all valid command words
-    protected Scanner reader;         // source of command input
+public class AutoParser extends Parser {
 
-    /**
-     * Create a parser to read from the terminal window.
-     */
-    public Parser(CommandFactory commandFactory) {
-        commands = commandFactory;
-        reader = new Scanner(System.in);
+
+    public AutoParser(CommandFactory commandFactory, File script) {
+        super(commandFactory);
+        try {
+            reader = new Scanner(script);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * @return The next command from the user.
-     */
+    @Override
     public CommandLine getCommandLine() {
         String inputLine;   // will hold the full input line
         String word1 = null;
@@ -26,8 +26,8 @@ public class Parser {
         System.out.print("> ");     // print prompt
 
         inputLine = reader.nextLine();
+        System.out.println(inputLine);
 
-        // Find up to two words on the line.
         Scanner tokenizer = new Scanner(inputLine);
         if (tokenizer.hasNext()) {
             word1 = tokenizer.next();      // get first word
@@ -37,8 +37,6 @@ public class Parser {
             }
         }
 
-        // Now check whether this word is known. If so, create a command
-        // with it. If not, create a "null" command (for unknown command).
         if (commands.isCommand(word1)) {
             return new CommandLine(word1, word2);
         } else {

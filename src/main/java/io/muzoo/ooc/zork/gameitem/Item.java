@@ -2,8 +2,10 @@ package io.muzoo.ooc.zork.gameitem;
 
 import io.muzoo.ooc.zork.character.Player;
 
-public abstract class Item {
-    private String name;
+import java.io.Serializable;
+
+public abstract class Item implements Serializable {
+    private final String name;
     private String info;
 
     public Item(String newName) {

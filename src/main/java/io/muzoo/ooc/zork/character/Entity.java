@@ -1,13 +1,15 @@
 package io.muzoo.ooc.zork.character;
 
-public abstract class Entity {
+import java.io.Serializable;
+
+public abstract class Entity implements Serializable {
     private int healthMax;
     private int health;
     private String name;
     private String info;
     private boolean alive;
 
-    public Entity(){
+    public Entity() {
         this.healthMax = 100;
         this.health = 100;
         this.name = "default";

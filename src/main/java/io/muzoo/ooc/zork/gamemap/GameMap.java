@@ -3,12 +3,14 @@ package io.muzoo.ooc.zork.gamemap;
 import io.muzoo.ooc.zork.gameitem.ItemFactory;
 import io.muzoo.ooc.zork.monster.MonsterFactory;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-public class GameMap {
+public class GameMap implements Serializable {
     String name;
     String intro;
     String description;

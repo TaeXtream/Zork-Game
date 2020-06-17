@@ -30,6 +30,7 @@ public class GoCommand extends Command {
             game.setCurrentArea(nextArea);
             System.out.println(nextArea.getDescription());
             System.out.println(nextArea.getAreaInfo());
+            System.out.println();
         }
     }
 }

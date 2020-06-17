@@ -1,0 +1,12 @@
+cheat ultimate
+status
+go north
+go east
+go north
+go north
+go west
+go west
+attack Namielle
+attack Namielle
+attack Namielle
+attack Namielle

@@ -20,7 +20,7 @@ public class UseCommand extends Command {
     }
 
     void useItem(String item) {
-        if (!game.getGameLibrary().getHealItemBook().containsKey(item)) {
+        if (!game.getGameLibrary().getHealItemBook().containsKey(item) && !game.getGameLibrary().getMaxHealItemBook().contains(item)) {
             System.out.println("This Item is not exist.");
             return;
         }

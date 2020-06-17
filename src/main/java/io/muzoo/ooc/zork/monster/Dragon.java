@@ -7,40 +7,40 @@ public class Dragon extends Monster {
     private final int superAttack;
 
     public Dragon() {
-        this.setHealthMax(200);
+        this.setHealthMax(300);
         this.setHostile(true);
-        this.setAttack(30);
-        this.setHealth(200);
-        this.superAttack = 80;
+        this.setAttack(40);
+        this.setHealth(300);
+        this.superAttack = 100;
     }
 
-    public Dragon(String name){
-        this.setHealthMax(200);
+    public Dragon(String name) {
+        this.setHealthMax(300);
         this.setHostile(true);
         this.setName(name);
-        this.setAttack(30);
-        this.setHealth(200);
-        this.superAttack = 80;
+        this.setAttack(40);
+        this.setHealth(300);
+        this.superAttack = 100;
     }
 
     public Dragon(String name, String info) {
-        this.setHealthMax(200);
+        this.setHealthMax(300);
         this.setHostile(true);
         this.setName(name);
         this.setInfo(info);
-        this.setAttack(30);
-        this.setHealth(200);
-        this.superAttack = 80;
+        this.setAttack(40);
+        this.setHealth(300);
+        this.superAttack = 100;
     }
 
     public Dragon(String name, String info, Item drop) {
-        this.setHealthMax(200);
+        this.setHealthMax(300);
         this.setHostile(true);
         this.setName(name);
         this.setInfo(info);
-        this.setAttack(30);
-        this.setHealth(200);
-        this.superAttack = 80;
+        this.setAttack(40);
+        this.setHealth(300);
+        this.superAttack = 100;
         this.drop = drop;
     }
 

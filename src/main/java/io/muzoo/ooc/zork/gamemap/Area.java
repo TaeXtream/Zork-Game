@@ -3,10 +3,13 @@ package io.muzoo.ooc.zork.gamemap;
 import io.muzoo.ooc.zork.gameitem.Item;
 import io.muzoo.ooc.zork.monster.Monster;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 
-public class Area {
+public class Area implements Serializable {
     String name;
     String description;
     HashMap<String, Area> neighbor;

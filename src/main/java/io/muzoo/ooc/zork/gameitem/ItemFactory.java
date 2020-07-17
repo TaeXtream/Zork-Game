@@ -1,7 +1,6 @@
 package io.muzoo.ooc.zork.gameitem;
 
 import io.muzoo.ooc.zork.gamemap.GameLibrary;
-import io.muzoo.ooc.zork.monster.*;
 
 public class ItemFactory {
     GameLibrary gameLibrary = new GameLibrary();
